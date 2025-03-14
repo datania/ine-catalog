@@ -23,7 +23,7 @@ print(f"\t✓ Loaded {len(tables)} tables")
 
 print("Fetching SERIES_TABLA...")
 
-LIMIT = 50
+LIMIT = 10
 with (
     open("/tmp/series.input.spec", "w") as series_spec,
     open("/tmp/tablas.input.spec", "w") as tables_spec,
@@ -40,7 +40,7 @@ with (
         tables_spec.write(f"\tout={t['Id']}.csv\n")
         tables_spec.write(f"\tdir=data/tablas/{t['Id']}\n\n")
 
-subprocess.run(
+out_series = subprocess.run(
     [
         "aria2c",
         "-i /tmp/series.input.spec",
@@ -66,11 +66,15 @@ subprocess.run(
     capture_output=True,
 )
 
+print(out_series.stdout)
+print(out_series.stderr)
+print(out_series.returncode)
+
 print("\t✓ Done!")
 
-print("Fetching TABLES CSV files...")
+print("Fetching CSV files...")
 
-subprocess.run(
+out_tables = subprocess.run(
     [
         "aria2c",
         "-i /tmp/tablas.input.spec",
@@ -91,11 +95,14 @@ subprocess.run(
         "--auto-file-renaming=false",
         "--console-log-level=warn",
         "--allow-overwrite=true",
-        "--on-download-complete=scripts/hook.py",
     ],
-    check=True,
     capture_output=True,
 )
+
+print(out_tables.stdout)
+print(out_tables.stderr)
+print(out_tables.returncode)
+
 
 print("\t✓ Done!")
 
