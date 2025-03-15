@@ -13,10 +13,10 @@ jobs:
           unzip duckdb.zip
           chmod +x duckdb
           sudo mv duckdb /usr/local/bin/
-
+      
       - name: Run Command
         run: |
-          duckdb -c "CREATE SECRET http (TYPE http, EXTRA_HTTP_HEADERS MAP {'Accept-Encoding': 'gzip'}); copy (from read_csv('https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/15797.csv', delim=';', ignore_errors=True, normalize_names=True, null_padding=True, parallel=True, strict_mode=False, compression='gzip')) to 'file.parquet' (format parquet, compression 'zstd', parquet_version v2, row_group_size 1048576)"
-
+          duckdb -c "CREATE SECRET http (TYPE http, EXTRA_HTTP_HEADERS MAP {'Accept-Encoding': 'gzip'}); COPY (FROM read_csv('https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/15797.csv', delim=';', ignore_errors=True, normalize_names=True, null_padding=True, parallel=True, strict_mode=False, compression='gzip')) TO 'file.parquet' (format parquet, compression 'zstd', parquet_version v2, row_group_size 1048576);"
+      
       - name: Check File
         run: ls -lh file.parquet
