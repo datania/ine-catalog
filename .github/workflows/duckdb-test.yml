@@ -1,22 +1,22 @@
 name: DuckDB
-
 on:
   workflow_dispatch:
-
 jobs:
   duckdb:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Install DuckDB
         run: |
-          curl https://install.duckdb.org | sh
-          export PATH='/home/runner/.duckdb/cli/latest':$PATH
+          curl -L https://github.com/duckdb/duckdb/releases/download/v0.10.0/duckdb_cli-linux-amd64.zip -o duckdb.zip
+          unzip duckdb.zip
+          chmod +x duckdb
+          sudo mv duckdb /usr/local/bin/
 
       - name: Run Command
-        run: duckdb -c "CREATE SECRET http (TYPE http, EXTRA_HTTP_HEADERS MAP {'Accept-Encoding': 'gzip'}); copy (from read_csv('https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/15797.csv', delim=';', ignore_errors=True, normalize_names=True, null_padding=True, parallel=True, strict_mode=False, compression='gzip')) to 'file.parquet' (format parquet, compression 'zstd', parquet_version v2, row_group_size 1048576)"
+        run: |
+          duckdb -c "CREATE SECRET http (TYPE http, EXTRA_HTTP_HEADERS MAP {'Accept-Encoding': 'gzip'}); copy (from read_csv('https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/15797.csv', delim=';', ignore_errors=True, normalize_names=True, null_padding=True, parallel=True, strict_mode=False, compression='gzip')) to 'file.parquet' (format parquet, compression 'zstd', parquet_version v2, row_group_size 1048576)"
 
       - name: Check File
         run: ls -lh file.parquet
