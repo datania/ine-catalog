@@ -1,110 +1,74 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.13"
-# dependencies = []
+# dependencies = ["duckdb", "tqdm"]
 # [tool.uv]
 # exclude-newer = "2025-03-13T00:00:00Z"
 # ///
 
 import json
-import subprocess
 from pathlib import Path
 
-# Load tables data from JSON file
-data_dir = Path("data")
-tables_file = data_dir / "tablas.json"
+import duckdb  # type: ignore
+from tqdm import tqdm
+
+# Load tables data from JSONL file
+data_dir = Path("ine")
+tables_file = data_dir / "tablas.jsonl"
 
 print(f"Loading tables data from {tables_file}...")
+tables = []
 with open(tables_file, "r", encoding="utf-8") as f:
-    tables = json.load(f)
+    for line in f:
+        tables.append(json.loads(line))
 
 print(f"\t✓ Loaded {len(tables)} tables")
 
 
-print("Fetching SERIES_TABLA...")
+c = duckdb.connect()
+c.sql("""
+CREATE SECRET http (TYPE http, EXTRA_HTTP_HEADERS MAP {'Accept-Encoding': 'gzip'});
+""")
 
-LIMIT = 10
-with (
-    open("/tmp/series.input.spec", "w") as series_spec,
-    open("/tmp/tablas.input.spec", "w") as tables_spec,
-):
-    for t in tables[:LIMIT]:
-        # Series
-        series_url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{t['Id']}?det=10"
-        series_spec.write(f"{series_url}\n")
-        series_spec.write("\tout=series_metadata.json\n")
-        series_spec.write(f"\tdir=data/tablas/{t['Id']}\n\n")
-        # Tables
-        tables_url = f"https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/{t['Id']}.csv"
-        tables_spec.write(f"{tables_url}\n")
-        tables_spec.write(f"\tout={t['Id']}.csv\n")
-        tables_spec.write(f"\tdir=data/tablas/{t['Id']}\n\n")
+# Create directories for output data
+ine_dir = Path("ine/tablas")
+ine_dir.mkdir(exist_ok=True, parents=True)
 
-out_series = subprocess.run(
-    [
-        "aria2c",
-        "-i /tmp/series.input.spec",
-        "-j 16",
-        "-x 16",
-        "-s 16",
-        "-k 20M",
-        "-c",
-        "--file-allocation=none",
-        "--optimize-concurrent-downloads=true",
-        "--retry-wait=120",
-        "--max-tries=10",
-        "--connect-timeout=10",
-        "--continue=true",
-        "--timeout=10",
-        "--log=/tmp/series_csv_aria2.log",
-        "--log-level=warn",
-        "--auto-file-renaming=false",
-        "--console-log-level=warn",
-        "--allow-overwrite=true",
-    ],
-    check=True,
-    capture_output=True,
-)
+print(f"Created output directory: {ine_dir}")
 
-print(out_series.stdout)
-print(out_series.stderr)
-print(out_series.returncode)
+failed_tables = []
 
-print("\t✓ Done!")
+for table in tqdm(tables, desc="Processing INE Tables"):
+    try:
+        directory = ine_dir / str(table["Id"])
+        directory.mkdir(exist_ok=True)
+        c.sql(f"""
+            copy (
+                from read_csv(
+                    'https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/{table["Id"]}.csv',
+                    delim=';',
+                    ignore_errors=true,
+                    normalize_names=true,
+                    null_padding=true,
+                    parallel=true,
+                    strict_mode=false,
+                    compression='gzip'
+                )
+            )
+            to 'ine/tablas/{table["Id"]}/datos.parquet' (
+                format parquet,
+                compression 'zstd',
+                parquet_version v2,
+                row_group_size 1048576
+            );
+        """)
+    except Exception as e:
+        print(f"Error processing table {table['Id']}: {str(e)}")
+        failed_tables.append(table["Id"])
 
-print("Fetching CSV files...")
-
-out_tables = subprocess.run(
-    [
-        "aria2c",
-        "-i /tmp/tablas.input.spec",
-        "-j 16",
-        "-x 16",
-        "-s 16",
-        "-k 20M",
-        "-c",
-        "--file-allocation=none",
-        "--optimize-concurrent-downloads=true",
-        "--retry-wait=120",
-        "--max-tries=10",
-        "--connect-timeout=10",
-        "--continue=true",
-        "--timeout=10",
-        "--log=/tmp/tables_csv_aria2.log",
-        "--log-level=warn",
-        "--auto-file-renaming=false",
-        "--console-log-level=warn",
-        "--allow-overwrite=true",
-    ],
-    capture_output=True,
-)
-
-print(out_tables.stdout)
-print(out_tables.stderr)
-print(out_tables.returncode)
-
-
-print("\t✓ Done!")
-
-# TODO: Do another round looking for the missing files and retry those
-# grep -rl "unos minutos" data/tablas/*
+if failed_tables:
+    print(f"\nFailed to process {len(failed_tables)} tables:")
+    for table_id in failed_tables:
+        print(f"- {table_id}")
+else:
+    print("\nAll tables processed successfully!")

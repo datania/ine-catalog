@@ -46,34 +46,35 @@ def ine_request(client: httpx.Client, endpoint):
     return data
 
 
-def save_data(data, filename):
-    with open(data_dir / filename, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+def save_jsonl(data, filename):
+    with open(filename, "w", encoding="utf-8") as f:
+        for item in data:
+            f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
 
-data_dir = Path("data")
+data_dir = Path("ine")
 data_dir.mkdir(exist_ok=True)
 
 # OPERACIONES_DISPONIBLES
 print("Fetching OPERACIONES_DISPONIBLES...")
 operations = ine_request(client, "OPERACIONES_DISPONIBLES")
-save_data(operations, "operaciones.json")
+save_jsonl(operations, data_dir / "operaciones.jsonl")
 print(f"\t✓ Found {len(operations)} operations")
-print(f"\t✓ Operations data saved to {data_dir}/operaciones.json")
+print(f"\t✓ Operations data saved to {data_dir}/operaciones.jsonl")
 
 # VARIABLES
 print("Fetching VARIABLES...")
 variables = ine_request(client, "VARIABLES")
-save_data(variables, "variables.json")
+save_jsonl(variables, data_dir / "variables.jsonl")
 print(f"\t✓ Found {len(variables)} variables")
-print(f"\t✓ Variables data saved to {data_dir}/variables.json")
+print(f"\t✓ Variables data saved to {data_dir}/variables.jsonl")
 
 # PUBLICACIONES
 print("Fetching PUBLICACIONES...")
 publications = ine_request(client, "PUBLICACIONES")
-save_data(publications, "publicaciones.json")
+save_jsonl(publications, data_dir / "publicaciones.jsonl")
 print(f"\t✓ Found {len(publications)} publications")
-print(f"\t✓ Publications data saved to {data_dir}/publicaciones.json")
+print(f"\t✓ Publications data saved to {data_dir}/publicaciones.jsonl")
 
 # TABLAS_OPERACION
 print("Fetching TABLAS_OPERACION...")
@@ -82,6 +83,6 @@ tables = [
     for operation in operations
     for table in ine_request(client, f"TABLAS_OPERACION/{operation['Id']}")
 ]
-save_data(tables, "tablas.json")
+save_jsonl(tables, data_dir / "tablas.jsonl")
 print(f"\t✓ Found {len(tables)} tables")
-print(f"\t✓ Tables data saved to {data_dir}/tablas.json")
+print(f"\t✓ Tables data saved to {data_dir}/tablas.jsonl")

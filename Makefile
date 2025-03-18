@@ -36,17 +36,14 @@ export-base-api:
 export-datasets:
 	@uv run scripts/02-export-datasets.py
 
-.PHONY: export-datasets-duckb
-export-datasets-duckb:
-	@uv run scripts/02-export-datasets-duckb.py
+.PHONY: export-metadata
+export-metadata:
+	@uv run scripts/03-export-metadata.py
 
-
-.PHONY: transform-to-parquet
-transform-to-parquet:
-	@uv run scripts/03-transform-to-parquet.py
+.PHONY: upload
+upload:
+	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.jsonl"
+	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.md"
 
 .PHONY: export
-export: export-base-api export-datasets transform-to-parquet
-
-.PHONY: new-export
-new-export: export-base-api export-datasets-duckb
+export: export-base-api export-datasets
