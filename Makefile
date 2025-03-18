@@ -46,4 +46,4 @@ upload:
 	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.md"
 
 .PHONY: export
-export: export-base-api export-datasets
+export: export-base-api export-datasets export-metadata upload
