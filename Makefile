@@ -40,10 +40,14 @@ export-datasets:
 export-metadata:
 	@uv run scripts/03-export-metadata.py
 
+.PHONY: generate-readmes
+generate-readmes:
+	@uv run scripts/04-generate-readmes.py
+
 .PHONY: upload
 upload:
 	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.jsonl"
 	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.md"
 
 .PHONY: export
-export: export-base-api export-datasets export-metadata upload
+export: export-base-api export-datasets export-metadata generate-readmes

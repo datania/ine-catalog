@@ -39,7 +39,12 @@ async def process_table(table, semaphore, pbar, conn):
     async with semaphore:
         try:
             directory = ine_dir / str(table["Id"])
-            directory.mkdir(exist_ok=True)
+            if (directory / "datos.parquet").exists():
+                print(f"Skipping table {table['Id']} because it already exists")
+                pbar.update(1)
+                return
+            else:
+                directory.mkdir(exist_ok=True)
 
             # Execute in a separate thread since DuckDB operations are blocking
             await asyncio.to_thread(
@@ -80,7 +85,7 @@ async def main():
     """)
 
     # Create semaphore to limit concurrent requests
-    semaphore = asyncio.Semaphore(30)
+    semaphore = asyncio.Semaphore(5)
 
     # Create progress bar
     pbar = tqdm(total=len(tables), desc="Processing INE Tables")

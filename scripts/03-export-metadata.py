@@ -10,7 +10,7 @@ import asyncio
 import json
 from pathlib import Path
 
-import httpx
+import httpx  # type: ignore
 from tqdm import tqdm  # type: ignore
 
 # Load tables data from JSONL file

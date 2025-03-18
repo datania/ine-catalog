@@ -15,7 +15,8 @@ configs:
 
 Este repositorio contiene todas las tablas¹ del [Instituto Nacional de Estadística](https://www.ine.es/) exportadas a ficheros Parquet.
 
-Puedes encontrar los datos de las tablas como sus metadatos en la carpeta `tablas`. Cada dataset está identificado un una ID.  Puedes encontrar el ID en la URL de la tabla en la web del INE (es el número que aparece en la URL) or en el archivo `tablas.jsonl` de este repositorio.
+Puedes encontrar cualquiera de las tablas o sus metadatos en la carpeta `tablas`.
+Cada tabla está identificado un una ID. Puedes encontrar la ID de la tabla tanto en el INE (es el número que aparece en la URL) or en el archivo `tablas.jsonl` de este repositorio que puedes explorar en el [Data Viewer](https://huggingface.co/datasets/davidgasquez/ine/viewer).
 
 Por ejemplo, la tabla de [_Índices nacionales de clases_](https://www.ine.es/jaxiT3/Tabla.htm?t=50904&L=0) se corresponde al ID `50904` (en la URL) está en [`tablas/50904/datos.parquet`](https://huggingface.co/datasets/davidgasquez/ine/blob/main/tablas/50904/datos.parquet).
 
