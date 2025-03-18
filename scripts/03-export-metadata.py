@@ -1,16 +1,17 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.13"
-# dependencies = ["httpx", "tqdm"]
+# dependencies = ["httpx", "tqdm", "asyncio"]
 # [tool.uv]
 # exclude-newer = "2025-03-13T00:00:00Z"
 # ///
 
+import asyncio
 import json
 from pathlib import Path
 
-import httpx  # type: ignore
-from tqdm import tqdm
+import httpx
+from tqdm import tqdm  # type: ignore
 
 # Load tables data from JSONL file
 data_dir = Path("ine")
@@ -25,18 +26,56 @@ with open(tables_file, "r", encoding="utf-8") as f:
 print(f"\t✓ Loaded {len(tables)} tables")
 
 
-def save_jsonl(data, filename):
+async def save_jsonl(data, filename):
     with open(filename, "w", encoding="utf-8") as f:
         for item in data:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
 
-for table in tqdm(tables, desc="Processing Table Metadata"):
-    url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{table['Id']}?det=10"
-    response = httpx.get(url)
-    data = response.json()
+# Create directories for output data
+ine_dir = Path("ine/tablas")
+ine_dir.mkdir(exist_ok=True, parents=True)
 
-    directory = data_dir / "tablas" / str(table["Id"])
-    directory.mkdir(exist_ok=True)
 
-    save_jsonl(data, directory / "metadata_series.jsonl")
+async def fetch_table_metadata(client, table, semaphore, pbar):
+    async with semaphore:
+        url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{table['Id']}?det=10"
+        try:
+            response = await client.get(url)
+            data = response.json()
+
+            directory = ine_dir / str(table["Id"])
+            directory.mkdir(exist_ok=True)
+
+            await save_jsonl(data, directory / "metadata_series.jsonl")
+            pbar.update(1)
+        except Exception as e:
+            print(f"Error processing table {table['Id']}: {e}")
+            pbar.update(1)
+
+
+async def main():
+    # Configure client with proper retry and connection limits
+    transport = httpx.AsyncHTTPTransport(retries=3)
+    limits = httpx.Limits(max_keepalive_connections=5, max_connections=10)
+
+    # Create semaphore to limit concurrent requests
+    semaphore = asyncio.Semaphore(10)
+
+    # Create progress bar
+    pbar = tqdm(total=len(tables), desc="Processing Table Metadata")
+
+    async with httpx.AsyncClient(
+        transport=transport, limits=limits, timeout=60
+    ) as client:
+        # Create tasks for each table
+        tasks = [
+            fetch_table_metadata(client, table, semaphore, pbar) for table in tables
+        ]
+        # Execute all tasks concurrently
+        await asyncio.gather(*tasks)
+
+    pbar.close()
+
+
+asyncio.run(main())

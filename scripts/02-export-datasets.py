@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 
 import duckdb  # type: ignore
-from tqdm import tqdm
+from tqdm import tqdm  # type: ignore
 
 # Load tables data from JSONL file
 data_dir = Path("ine")
