@@ -1,7 +1,7 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.13"
-# dependencies = ["httpx", "tqdm", "asyncio"]
+# dependencies = ["httpx", "tqdm", "asyncio", "polars"]
 # [tool.uv]
 # exclude-newer = "2025-03-13T00:00:00Z"
 # ///
@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 
 import httpx  # type: ignore
+import polars as pl  # type: ignore
 from tqdm import tqdm  # type: ignore
 
 # Load tables data from JSONL file
@@ -26,10 +27,10 @@ with open(tables_file, "r", encoding="utf-8") as f:
 print(f"\t✓ Loaded {len(tables)} tables")
 
 
-async def save_jsonl(data, filename):
-    with open(filename, "w", encoding="utf-8") as f:
-        for item in data:
-            f.write(json.dumps(item, ensure_ascii=False) + "\n")
+async def save_parquet(data, filename):
+    pl.DataFrame(data).write_parquet(
+        filename, compression="zstd", row_group_size=1048576
+    )
 
 
 # Create directories for output data
@@ -41,13 +42,15 @@ async def fetch_table_metadata(client, table, semaphore, pbar):
     async with semaphore:
         url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{table['Id']}?det=10"
         try:
-            response = await client.get(url)
+            # Request gzipped content
+            headers = {"Accept-Encoding": "gzip"}
+            response = await client.get(url, headers=headers)
             data = response.json()
 
             directory = ine_dir / str(table["Id"])
             directory.mkdir(exist_ok=True)
 
-            await save_jsonl(data, directory / "metadata_series.jsonl")
+            await save_parquet(data, directory / "metadatos_series.parquet")
             pbar.update(1)
         except Exception as e:
             print(f"Error processing table {table['Id']}: {e}")
