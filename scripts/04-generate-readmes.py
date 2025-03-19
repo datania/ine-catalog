@@ -34,6 +34,9 @@ README_TEMPLATE = """# {table_name}
 - **Operación**: {operation_name} - `{operation_code}`
 - **Periodo Inicial**: {period_ini_name} {anyo_period_ini}
 - **Última Modificación**: {last_modified_date}
+- **Licencia**: Creative Commons Reconocimiento 4.0
+
+Este dataset es elaboración propia con datos extraídos del sitio web del INE: www.ine.es
 """
 
 for table in tables:

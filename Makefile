@@ -46,8 +46,6 @@ generate-readmes:
 
 .PHONY: upload
 upload:
-	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.jsonl"
-	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload --repo-type=dataset davidgasquez/ine ine --include "*.md"
 	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload-large-folder --repo-type=dataset davidgasquez/ine ine
 
 .PHONY: export
