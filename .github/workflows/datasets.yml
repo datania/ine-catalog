@@ -12,8 +12,8 @@ jobs:
       contents: write
     strategy:
       matrix:
-        split: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        max_splits: [10]
+        split: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        max_splits: [20]
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
@@ -26,3 +26,8 @@ jobs:
 
       - name: Export INE Datasets (Split ${{ matrix.split }})
         run: uv run scripts/02-export-datasets.py --split ${{ matrix.split }} --max-splits ${{ matrix.max_splits }}
+
+      - name: Upload to Hugging Face
+        run: make upload
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
