@@ -1,4 +1,4 @@
-name: Export INE Base API
+name: Export INE Metadata
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * 1'
 
 jobs:
-  export-base-api:
+  export-metadata:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,3 +18,14 @@ jobs:
 
       - name: Export INE Base API
         run: make export-base-api
+
+      - name: Export INE Metadata
+        run: make export-metadata
+
+      - name: Generate Readmes
+        run: make generate-readmes
+
+      - name: Upload to Hugging Face
+        run: make upload
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
