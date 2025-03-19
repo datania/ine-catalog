@@ -25,6 +25,9 @@ jobs:
       - name: Generate Readmes
         run: make generate-readmes
 
+      - name: Install Hugging Face CLI
+        run: uv tool install 'huggingface_hub[hf_transfer]'
+
       - name: Upload to Hugging Face
         run: make upload
         env:
