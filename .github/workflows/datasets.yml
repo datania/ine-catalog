@@ -1,4 +1,4 @@
-name: Run
+name: Export INE Datasets
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * 1'
 
 jobs:
-  process-datasets:
+  export-datasets:
     runs-on: ubuntu-latest
     permissions:
       contents: write
