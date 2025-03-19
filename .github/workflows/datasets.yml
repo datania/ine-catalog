@@ -1,0 +1,28 @@
+name: Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  process-datasets:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        split: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        max_splits: [10]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Export INE Base API
+        run: make export-base-api
+
+      - name: Export INE Datasets (Split ${{ matrix.split }})
+        run: uv run scripts/02-export-datasets.py --split ${{ matrix.split }} --max-splits ${{ matrix.max_splits }}

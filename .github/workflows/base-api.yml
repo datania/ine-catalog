@@ -1,4 +1,4 @@
-name: Run
+name: Export INE Base API
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * 1'
 
 jobs:
-  run:
+  export-base-api:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,5 +16,5 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
-      - name: Export INE
-        run: make export
+      - name: Export INE Base API
+        run: make export-base-api

@@ -1,9 +1,9 @@
 name: Update API Documentation
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * 1'
-  workflow_dispatch:
 
 jobs:
   update-api-docs:
