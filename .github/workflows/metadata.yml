@@ -29,6 +29,5 @@ jobs:
         run: uv tool install 'huggingface_hub[hf_transfer]'
 
       - name: Upload to Hugging Face
-        run: make upload
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset davidgasquez/ine ine
