@@ -27,9 +27,6 @@ jobs:
       - name: Export INE Metadata (Split ${{ matrix.split }})
         run: uv run scripts/03-export-metadata.py --split ${{ matrix.split }} --max-splits ${{ matrix.max_splits }}
 
-      - name: Generate Readmes
-        run: make generate-readmes
-
       - name: Install Hugging Face CLI
         run: uv tool install 'huggingface_hub[hf_transfer]'
 
