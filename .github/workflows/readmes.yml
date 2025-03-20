@@ -1,0 +1,30 @@
+name: Export INE READMEs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  export-readmes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Export INE Base API
+        run: make export-base-api
+
+      - name: Generate Readmes
+        run: make generate-readmes
+
+      - name: Install Hugging Face CLI
+        run: uv tool install 'huggingface_hub[hf_transfer]'
+
+      - name: Upload to Hugging Face
+        run: |
+          HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset davidgasquez/ine ine
