@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    strategy:
+      matrix:
+        split: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        max_splits: [20]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v4
 
@@ -19,8 +24,8 @@ jobs:
       - name: Export INE Base API
         run: make export-base-api
 
-      - name: Export INE Metadata
-        run: make export-metadata
+      - name: Export INE Metadata (Split ${{ matrix.split }})
+        run: uv run scripts/03-export-metadata.py --split ${{ matrix.split }} --max-splits ${{ matrix.max_splits }}
 
       - name: Generate Readmes
         run: make generate-readmes

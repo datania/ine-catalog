@@ -5,6 +5,7 @@
 # [tool.uv]
 # exclude-newer = "2025-03-13T00:00:00Z"
 # ///
+import argparse
 import asyncio
 import json
 from pathlib import Path
@@ -12,6 +13,25 @@ from pathlib import Path
 import httpx  # type: ignore
 import polars as pl  # type: ignore
 from tqdm import tqdm  # type: ignore
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--split", type=int, default=1, help="Split number to process")
+parser.add_argument("--max-splits", type=int, default=1, help="Total number of splits")
+args = parser.parse_args()
+
+# Sanity check for split and max_splits arguments
+if args.split <= 0:
+    raise ValueError("Split number must be greater than 0")
+
+if args.max_splits <= 0:
+    raise ValueError("Max splits must be greater than 0")
+
+if args.split > args.max_splits:
+    raise ValueError(
+        f"Split number ({args.split}) cannot be greater than max splits ({args.max_splits})"
+    )
+
+print(f"Processing split {args.split} of {args.max_splits}")
 
 # Load tables data from JSONL file
 data_dir = Path("ine")
@@ -22,6 +42,8 @@ tables = []
 with open(tables_file, "r", encoding="utf-8") as f:
     for line in f:
         tables.append(json.loads(line))
+
+tables = tables[args.split - 1 :: args.max_splits]
 
 print(f"\t✓ Loaded {len(tables)} tables")
 
