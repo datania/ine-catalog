@@ -2,6 +2,9 @@
 
 Tools to export metadata and datasets from [Spain's National Institute of Statistics](https://www.ine.es) to [HuggingFace](https://huggingface.co/datasets/davidgasquez/ine).
 
+> [!NOTE]  
+> Access all the latest datasets on [HuggingFace](https://huggingface.co/datasets/davidgasquez/ine)!
+
 ## 🔍 Resources
 
 - [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099) - INE JSON API
