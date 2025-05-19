@@ -1,14 +1,11 @@
 API JSON / Códigos identificadores de tablas y series
 ===============
-                                             
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1104 "English Page")
 
-   
-
-[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación") ![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/ss/Satellite?c=Page&cid=1254734719723&pagename=SedeElectronica%2FSELayout&lang=es_ES)
@@ -22,8 +19,7 @@ API JSON / Códigos identificadores de tablas y series
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   Códigos identificadores de tablas y series
-    ==========================================
-    
+==========================================
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   [Referencia de la API](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
@@ -35,34 +31,33 @@ API JSON / Códigos identificadores de tablas y series
 *   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-Códigos identificadores de tablas y series  
-  
+Códigos identificadores de tablas y series
+
 Obtención del identificador de una tabla utilizando INEbase
------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 
 Navegando a través de INEbase, se acceden a las tablas estadísticas. Se distinguen los identificadores en base a la fuente de procedencia de las mismas.
 
 *   Tablas Tempus3
-    *   *   **Tabla**: Índices nacionales: general y de grupos ECOICOP
+    *           *   **Tabla**: Índices nacionales: general y de grupos ECOICOP
         *   **Enlace**: [https://www.ine.es/jaxiT3/Tabla.htm?t=50902](https://www.ine.es/jaxiT3/Tabla.htm?t=50902)
         *   **Identificador**: el parámetro t de la URL: 50902
-        
-        ![Image 3: indices_nacionales](https://www.ine.es/GS_FILES/indices_nacionales.png)
-        
+
+![Image 3: indices_nacionales](https://www.ine.es/GS_FILES/indices_nacionales.png)
+
 *   Tablas PC-Axis
-    *   *   **Tabla**: Población por edad (3 grupos de edad), Españoles/Extranjeros, Sexo y Año
+    *           *   **Tabla**: Población por edad (3 grupos de edad), Españoles/Extranjeros, Sexo y Año
         *   **Enlace**: [https://www.ine.es/jaxi/Tabla.htm?path=/t20/e245/p08/l0/&file=01001.px](https://www.ine.es/jaxi/Tabla.htm?path=/t20/e245/p08/l0/&file=01001.px)
         *   **Identificador**: concatenación de los parámetros path (t20/e245/p08/l0/) y file (01001.px) resultando t20/e245/p08/l0/01001.px
-        
-        ![Image 4: poblacion_edad](https://www.ine.es/GS_FILES/poblacion_edad.png)
-        
+
+![Image 4: poblacion_edad](https://www.ine.es/GS_FILES/poblacion_edad.png)
+
 *   Tablas tpx
-    *   *   **Tabla**: Extracción nacional por tipo de material y años
+    *           *   **Tabla**: Extracción nacional por tipo de material y años
         *   **Enlace**: [https://www.ine.es/jaxi/Tabla.htm?tpx=33387&L=0](https://www.ine.es/jaxi/Tabla.htm?tpx=33387&L=0)
         *   **Identificador**: el parámetro tpx de la URL: 33387
-        
-        ![Image 5: extraccion_nacional](https://www.ine.es/GS_FILES/extraccion_nacional.png)
-        
+
+![Image 5: extraccion_nacional](https://www.ine.es/GS_FILES/extraccion_nacional.png)
 
 Obtención del identificador de una serie utilizando INEbase (sólo Tempus3)
 --------------------------------------------------------------------------
@@ -114,7 +109,7 @@ El identificador de una serie de Tempus3 se obtiene a través de las tablas de I
 *   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/INE/es/index.htm?cid=1303 "Abre ventana nueva")
 
-© 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/) [Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
+© 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
 

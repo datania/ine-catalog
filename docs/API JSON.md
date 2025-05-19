@@ -1,14 +1,11 @@
 API JSON / API JSON
 ===============
-                                             
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1099 "English Page")
 
-   
-
-[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación") ![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/ss/Satellite?c=Page&cid=1254734719723&pagename=SedeElectronica%2FSELayout&lang=es_ES)
@@ -22,8 +19,7 @@ API JSON / API JSON
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   API JSON
-    ========
-    
+========
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   [Referencia de la API](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
@@ -61,7 +57,7 @@ Se dispone del [paquete INEapir](https://github.com/es-ine/ineapir) para interac
 
 Para facilitar el acceso a la información que la API JSON proporciona se ha desarrollado un paquete de R que pone a disposición de los usuarios un conjunto de funciones para obtener datos y metadatos a través de llamadas a la propia API. El paquete INEapir incorpora todas las funcionalidades de ésta última y permite realizar las mismas consultas, desde las más generales a las más precisas, utilizando también los parámetros opcionales, pero con la ventaja de obtener la información directamente en los desarrollos realizados en R. Además, el paquete dispone de una página web con documentación y ejemplos de uso.
 
-[![Image 3: INEapir](https://www.ine.es/GS_FILES/hex_logo_INEapir.png)](https://github.com/es-ine/ineapir)     [![Image 4: Cheatsheet](https://www.ine.es/GS_FILES/ineapir_thumbnail_p.png)](https://raw.githubusercontent.com/es-ine/ineapir/main/man/figures/ineapir.pdf)
+[![Image 3: INEapir](https://www.ine.es/GS_FILES/hex_logo_INEapir.png)](https://github.com/es-ine/ineapir)[![Image 4: Cheatsheet](https://www.ine.es/GS_FILES/ineapir_thumbnail_p.png)](https://raw.githubusercontent.com/es-ine/ineapir/main/man/figures/ineapir.pdf)
 
 *   [**Contacto**](https://www.ine.es/infoine/)
 *   [Mapa web](https://www.ine.es/indiceweb.htm)
@@ -100,7 +96,7 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 *   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/INE/es/index.htm?cid=1303 "Abre ventana nueva")
 
-© 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/) [Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
+© 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
 

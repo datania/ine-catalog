@@ -1,14 +1,11 @@
 API JSON / Base de datos Tempus3
 ===============
-                                             
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1105 "English Page")
 
-   
-
-[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación") ![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/ss/Satellite?c=Page&cid=1254734719723&pagename=SedeElectronica%2FSELayout&lang=es_ES)
@@ -22,8 +19,7 @@ API JSON / Base de datos Tempus3
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   Base de datos Tempus3
-    =====================
-    
+=====================
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   [Referencia de la API](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
@@ -40,7 +36,7 @@ Base de datos Tempus3
 
 Tempus3 contiene la información de todas las operaciones estadísticas coyunturales del INE, aquellas cuya periodicidad de difusión de resultados es inferior al año, además de algunas operaciones estadísticas estructurales.
 
-La relación de operaciones en Tempus3 cambia a medida que éstas se van integrando en la base de datos.  Se pueden consultar las operaciones disponibles en el sistema Tempus3 a través de la siguiente URL: [https://servicios.ine.es/wstempus/js/ES/OPERACIONES\_DISPONIBLES](https://servicios.ine.es/wstempus/js/ES/OPERACIONES_DISPONIBLES).
+La relación de operaciones en Tempus3 cambia a medida que éstas se van integrando en la base de datos. Se pueden consultar las operaciones disponibles en el sistema Tempus3 a través de la siguiente URL:[https://servicios.ine.es/wstempus/js/ES/OPERACIONES_DISPONIBLES](https://servicios.ine.es/wstempus/js/ES/OPERACIONES_DISPONIBLES).
 
 Tempus3 es una base de datos relacional que utiliza un conjunto de objetos organizados dentro de una jerarquía para almacenar y gestionar la información estadística. Su elemento principal es la serie temporal, único objeto con datos asociados, en torno a él surgen el resto de los elementos. Operaciones y tablas estadísticas serán objetos contenedores de series temporales.
 
@@ -63,7 +59,7 @@ Valores
 
 Los valores son los estados que puede presentar una variable determinada. Por ejemplo, la variable Provincias contiene los valores: Áraba/Álava, Albacete, Alicante/Alacant,...
 
-Los valores contenidos en Tempus3 y utilizados en la difusión, son comunes a todas las operaciones estadísticas, es decir, no están duplicadas en el sistema, su identificador en Tempus3 (Id) y sus descriptores son únicos. Se pueden consultar los valores con la función [VALORES\_VARIABLE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1147).
+Los valores contenidos en Tempus3 y utilizados en la difusión, son comunes a todas las operaciones estadísticas, es decir, no están duplicadas en el sistema, su identificador en Tempus3 (Id) y sus descriptores son únicos. Se pueden consultar los valores con la función [VALORES_VARIABLE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1147).
 
 Series
 ------
@@ -74,33 +70,33 @@ Conjunto de observaciones medidas en determinados momentos del tiempo, ordenados
 
 Como entidad principal de la base de datos Tempus3, la serie tiene unas propiedades que la definen y que no cambian a lo largo del tiempo:
 
-**Identificador único y características de la serie:** _id, nombre, periodicidad, escala, unidad, clasificación, decimales,..._
+**Identificador único y características de la serie:**_id, nombre, periodicidad, escala, unidad, clasificación, decimales,..._
 
 Tablas
 ------
 
-Una de las ventajas de este Sistema es la facilidad que ofrece a la hora de gestionar las diferentes formas de presentación, que corresponden a las distintas formas en las que se pueden agrupar las series. Una de ellas es la agrupación en **tabla** (o cubo). Es la más utilizada por los usuarios, que acceden a las tablas estadísticas a través de INEbase.
+Una de las ventajas de este Sistema es la facilidad que ofrece a la hora de gestionar las diferentes formas de presentación, que corresponden a las distintas formas en las que se pueden agrupar las series. Una de ellas es la agrupación en**tabla**(o cubo). Es la más utilizada por los usuarios, que acceden a las tablas estadísticas a través de INEbase.
 
 Una tabla es el resultado del cruce de grupos de valores contenidos en una o varias variables, es decir, son una agrupación de series temporales definidas por estos grupos.
 
-Por ejemplo, se navega por [INEbase](https://www.ine.es/inebmenu/indice.htm) para llegar a la tabla [Índices por comunidades autónomas: general y de grupos ECOICOP](https://www.ine.es/jaxiT3/Tabla.htm?t=50913) del Índice de Precios de Consumo, Base 2021. Una vez se ha accedido a la tabla, se observa que ésta contiene todas las series que resultan de la combinación de los grupos de valores contenidos en las siguientes variables:
+Por ejemplo, se navega por[INEbase](https://www.ine.es/inebmenu/indice.htm)para llegar a la tabla [Índices por comunidades autónomas: general y de grupos ECOICOP](https://www.ine.es/jaxiT3/Tabla.htm?t=50913)del Índice de Precios de Consumo, Base 2021. Una vez se ha accedido a la tabla, se observa que ésta contiene todas las series que resultan de la combinación de los grupos de valores contenidos en las siguientes variables:
 
 **{Comunidades y Ciudades Autónomas} x {Grupos ECOICOP} x {Tipo de dato}**
 
-Como entidad, la tabla tiene unas características propias como nombre, los periodos que comprende y su un identificador, que es único. Puede obtener un listado de todas las tablas de una operación con la función [TABLAS\_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1149).
+Como entidad, la tabla tiene unas características propias como nombre, los periodos que comprende y su un identificador, que es único. Puede obtener un listado de todas las tablas de una operación con la función [TABLAS_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1149).
 
 Fecha de publicación
 --------------------
 
-Los datos en Tempus3 se publican a nivel de serie y están asociados a un instante de tiempo o **fecha de referenci**a **(periodo /año)**.
+Los datos en Tempus3 se publican a nivel de serie y están asociados a un instante de tiempo o**fecha de referenci**a**(periodo /año)**.
 
 Pero **¿cuándo se publican los datos? ¿cuándo se actualizan?**
 
-Cada operación tiene asociada una o varias **publicaciones** según sus diferentes periodicidades, por ejemplo, hay dos publicaciones para el IPC, una con periodicidad mensual y otra anual. Y éstas siguen el calendario de publicaciones del INE.
+Cada operación tiene asociada una o varias**publicaciones** según sus diferentes periodicidades, por ejemplo, hay dos publicaciones para el IPC, una con periodicidad mensual y otra anual. Y éstas siguen el calendario de publicaciones del INE.
 
-De esta manera, una **publicación** contiene los momentos en los que se publican los datos de una operación estadística: **fechas de publicación**.
+De esta manera, una**publicación** contiene los momentos en los que se publican los datos de una operación estadística:**fechas de publicación**.
 
-Con el identificador de la publicación se puede consultar la **fecha de publicación** de todas las operaciones estadísticas que se disponen en el calendario de publicaciones con la función [PUBLICACIONFECHA\_PUBLICACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1161). Cada una de estas **fechas de publicación** tiene unas características:
+Con el identificador de la publicación se puede consultar la**fecha de publicación**de todas las operaciones estadísticas que se disponen en el calendario de publicaciones con la función [PUBLICACIONFECHA_PUBLICACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1161). Cada una de estas**fechas de publicación**tiene unas características:
 
 *   [**Contacto**](https://www.ine.es/infoine/)
 *   [Mapa web](https://www.ine.es/indiceweb.htm)
@@ -139,7 +135,7 @@ Con el identificador de la publicación se puede consultar la **fecha de public
 *   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/INE/es/index.htm?cid=1303 "Abre ventana nueva")
 
-© 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/) [Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
+© 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
 
