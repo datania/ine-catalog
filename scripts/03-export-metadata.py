@@ -61,20 +61,28 @@ ine_dir.mkdir(exist_ok=True, parents=True)
 
 async def fetch_table_metadata(client, table, semaphore, pbar):
     async with semaphore:
-        url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{table['Id']}?det=10"
+        url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{table['Id']}?det=1"
+        table_id = table['Id']
+        
+        # Log which table we're processing
+        print(f"\n[Progress] Processing table {table_id} ({pbar.n + 1}/{len(tables)})")
+        
         try:
-            # Request gzipped content
+            # Request gzipped content with retries
             headers = {"Accept-Encoding": "gzip"}
             response = await client.get(url, headers=headers)
             data = response.json()
 
-            directory = ine_dir / str(table["Id"])
+            directory = ine_dir / str(table_id)
             directory.mkdir(exist_ok=True)
 
             save_parquet(data, directory / "metadatos_series.parquet")
             pbar.update(1)
+        except httpx.TimeoutException as e:
+            print(f"\n[TIMEOUT] Table {table_id} timed out after 60s: {e}")
+            pbar.update(1)
         except Exception as e:
-            print(f"Error processing table {table['Id']}: {e}")
+            print(f"\n[ERROR] Table {table_id} failed: {type(e).__name__}: {e}")
             pbar.update(1)
 
 
