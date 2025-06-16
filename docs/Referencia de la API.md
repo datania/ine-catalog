@@ -1,3 +1,5 @@
+Published Time: Sun, 15 Jun 2025 07:47:57 GMT
+
 API JSON / Referencia de la API
 
 ===============
@@ -9,7 +11,7 @@ API JSON / Referencia de la API
 [Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
-*   [Sede electrónica](https://sede.ine.gob.es/ss/Satellite?c=Page&cid=1254734719723&pagename=SedeElectronica%2FSELayout&lang=es_ES)
+*   [Sede electrónica](https://sede.ine.gob.es/)
 *   [Compartir](javascript:void(0))
     *   [X](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#shareTwitter "Abre ventana nueva X")
     *   [Facebook](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#shareFacebook "Abre ventana nueva Facebook")
@@ -65,6 +67,7 @@ Código identificativo de la tabla. Para obtener el código de una tabla acceder
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
         *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’), incluir metadatos (‘M’) o ambos (‘AM’)¨.
         *   **tv**: parámetro para filtrar, utilizado con el formato _tv=id\_variable:id\_valor_. Más información en [Como filtrar datos de una tabla](https://www.ine.es/dyngs/DAB/index.htm?cid=1102).
+        *   **date**:Obtener los datos entre dos fechas. El formato es date=aaaammdd:aaaammdd
 
     *   ### Salida
 
@@ -99,6 +102,14 @@ Información y datos de las series contenidas en la tabla: nombre de la serie, i
         *   Devuelve el último periodo de la tabla con Id=50902 y nivel de detalle 2
 
 [https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?nult=1&det=2](https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?nult=1&det=2)
+
+        *   Devuelve los datos entre el 01/01/2024 y el 31/12/2024
+
+[https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?date=20240101:20241231](https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?date=20240101:20241231)
+
+        *   Devuelve los datos a partir del 01/01/2025
+
+[https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?date=20250101:](https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?date=20250101:)
 
 *   DATOS_SERIE
     *   Obtener datos para una serie específica.
@@ -321,6 +332,7 @@ Código identificador de la variable. Para consultar las variables disponibles a
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos del parámetro: 0, 1 y 2.
+        *   **clasif**: Obtener valores para una determinada clasificación. Para consultar las clasificaciones vea [CLASIFICACIONES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1564).
 
     *   ### Salida
 
@@ -335,6 +347,10 @@ Información de los valores que puede tomar la variable: identificador Tempus3 d
         *   Consulta con máximo nivel de detalle
 
 [https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/115?det=2](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/115?det=2)
+
+        *   Consulta de municipios de 2019
+
+[https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/19?&clasif=107](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/19?&clasif=107)
 
 *   VALORES_VARIABLEOPERACION
     *   Obtener todos los valores para una variable específica de una operación dada.
@@ -731,6 +747,73 @@ Información de todas las publicaciones de una operación: identificador Tempus3
         *   Consulta con salida amigable
 
 [https://servicios.ine.es/wstempus/js/ES/PUBLICACIONFECHA_PUBLICACION/8?tip=A](https://servicios.ine.es/wstempus/js/ES/PUBLICACIONFECHA_PUBLICACION/8?tip=A)
+
+*   CLASIFICACIONES
+    *   Obtener todas las clasificaciones disponibles.
+
+    *   ### Input
+
+Ninguno
+
+    *   ### Parámetros
+
+Ninguno
+
+    *   ### Salida
+
+Información de todas las clasificaciones del Sistema: identificador Tempus3, nombre de la clasificación y fecha.
+
+    *   ### Ejemplos
+
+        *   Devuelve las clasificaciones disponibles
+
+[https://servicios.ine.es/wstempus/js/ES/CLASIFICACIONES](https://servicios.ine.es/wstempus/js/ES/CLASIFICACIONES)
+
+*   CLASIFICACIONES_OPERACION
+    *   Obtener todas las clasificaciones de una operación dada
+
+    *   ### Input
+
+Código identificador de la operación. Para consultar las operaciones disponibles vea [OPERACIONES_DISPONIBLES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1143).
+
+    *   ### Parámetros
+
+Ninguno
+
+    *   ### Salida
+
+Información de las clasificaciones de una operación: identificador Tempus3, nombre de la clasificación y fecha.
+
+    *   ### Ejemplos
+
+        *   Clasificaciones para la operación IPC (IOE30138 / IPC / 25).
+
+[https://servicios.ine.es/wstempus/js/ES/CLASIFICACIONES_OPERACION/25](https://servicios.ine.es/wstempus/js/ES/CLASIFICACIONES_OPERACION/25)
+
+*   VALORES_HIJOS
+    *   Obtener los valores hijo de un valor padre dado dentro de una estructura jerárquica.
+
+    *   ### Input
+
+Códigos identificadores de la variable y del valor. Para consultar las variables disponibles vea [VARIABLES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1145) y para consultar los valores de una variable vea [VALORES_VARIABLE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1147).
+
+    *   ### Parámetros
+
+        *   **det**: Ofrece mayor nivel de detalle de la información mostrada. Valores válidos del parámetro: 0, 1 y 2
+
+    *   ### Salida
+
+Información de los valores hijo de un valor dentro de una estructura jerárquica: identificador Tempus3 del valor, objeto variable Tempus3 a la que pertenece, nombre del valor y código oficial, identificadores de valores padre.
+
+    *   ### Ejemplos
+
+        *   Provincias (hijos de Comunidades Autónomas) de Andalucía (variable 70 e Id=8997)
+
+[https://servicios.ine.es/wstempus/js/ES/VALORES_HIJOS/70/8997](https://servicios.ine.es/wstempus/js/ES/VALORES_HIJOS/70/8997)
+
+        *   Misma consulta pero con mas detalle de salida
+
+[https://servicios.ine.es/wstempus/js/ES/VALORES_HIJOS/70/8997?det=2](https://servicios.ine.es/wstempus/js/ES/VALORES_HIJOS/70/8997?det=2)
 
 *   [**Contacto**](https://www.ine.es/infoine/)
 *   [Mapa web](https://www.ine.es/indiceweb.htm)

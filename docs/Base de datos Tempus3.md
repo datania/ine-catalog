@@ -1,3 +1,5 @@
+Published Time: Sun, 15 Jun 2025 09:59:46 GMT
+
 API JSON / Base de datos Tempus3
 
 ===============
@@ -9,7 +11,7 @@ API JSON / Base de datos Tempus3
 [Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
-*   [Sede electrónica](https://sede.ine.gob.es/ss/Satellite?c=Page&cid=1254734719723&pagename=SedeElectronica%2FSELayout&lang=es_ES)
+*   [Sede electrónica](https://sede.ine.gob.es/)
 *   [Compartir](javascript:void(0))
     *   [X](https://www.ine.es/dyngs/DAB/index.htm?cid=1105#shareTwitter "Abre ventana nueva X")
     *   [Facebook](https://www.ine.es/dyngs/DAB/index.htm?cid=1105#shareFacebook "Abre ventana nueva Facebook")
