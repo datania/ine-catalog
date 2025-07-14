@@ -1,10 +1,8 @@
-Published Time: Mon, 07 Jul 2025 02:06:20 GMT
+Published Time: Sun, 13 Jul 2025 09:55:30 GMT
 
 API JSON / Obtener datos de una tabla
 
 ===============
-
- Aviso a los usuarios
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -183,16 +181,5 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 © 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
-
-![Image 3](https://www.ine.es/menus//_b/img/aviso.svg)
-
-Aviso a los usuarios
---------------------
-
-Por motivos de mantenimiento del sistema, el funcionamiento de este portal web puede verse afectado.
-
-Disculpe las molestias.
-
-- [x] No volver a mostrar 
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)Aceptar
