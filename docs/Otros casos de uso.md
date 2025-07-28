@@ -1,4 +1,4 @@
-Published Time: Sun, 20 Jul 2025 08:13:54 GMT
+Published Time: Sun, 27 Jul 2025 14:39:21 GMT
 
 API JSON / Otros casos de uso
 
@@ -8,7 +8,7 @@ API JSON / Otros casos de uso
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1103 "English Page")
 
-[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de Estadí­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/)

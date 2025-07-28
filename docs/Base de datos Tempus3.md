@@ -1,4 +1,4 @@
-Published Time: Mon, 21 Jul 2025 02:15:12 GMT
+Published Time: Mon, 28 Jul 2025 02:19:07 GMT
 
 API JSON / Base de datos Tempus3
 
@@ -8,7 +8,7 @@ API JSON / Base de datos Tempus3
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1105 "English Page")
 
-[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de EstadÃ­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de Estadí­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/)
