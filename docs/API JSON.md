@@ -1,6 +1,6 @@
-Published Time: Sun, 10 Aug 2025 05:07:54 GMT
+Published Time: Sun, 17 Aug 2025 05:06:23 GMT
 
-API JSON / API JSON
+API JSON /API JSON
 
 ===============
 
@@ -20,9 +20,7 @@ API JSON / API JSON
     *   [Correo Electrónico](https://www.ine.es/dyngs/DAB/index.htm?cid=1099#shareMail "Abre ventana nueva")
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1099#shareClipboard "Abre ventana nueva")
 
-*   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
-*   API JSON
-========
+*   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 *   [Referencia de la API](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
@@ -33,6 +31,9 @@ API JSON / API JSON
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
+
+API JSON
+========
 
 API JSON
 --------
