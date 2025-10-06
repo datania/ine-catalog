@@ -1,4 +1,4 @@
-Published Time: Mon, 29 Sep 2025 01:50:05 GMT
+Published Time: Sun, 05 Oct 2025 15:31:53 GMT
 
 API JSON /Otros casos de uso
 
@@ -126,7 +126,7 @@ En lo que se refiere a las tablas, se puede obtener un listado de las tablas de 
 
 [https://servicios.ine.es/wstempus/js/ES/GRUPOS_TABLA/50913](https://servicios.ine.es/wstempus/js/ES/GRUPOS_TABLA/50913)
 
-        2.   Segunda parte de la consulta: Valores del grupo “Comunidades y Ciudades Autónomas” (Id=110924) perteneciente a la tabla "[Índices por comunidades autónomas: general y de grupos ECOICOP](https://www.ine.es/jaxiT3/Tabla.htm?t=50913)"(Id=50913)
+        2.   Segunda parte de la consulta: Valores del grupo ¿Comunidades y Ciudades Autónomas¿ (Id=110924) perteneciente a la tabla "[Índices por comunidades autónomas: general y de grupos ECOICOP](https://www.ine.es/jaxiT3/Tabla.htm?t=50913)"(Id=50913)
 
 [https://servicios.ine.es/wstempus/js/ES/VALORES_GRUPOSTABLA/50913/110924?det=1](https://servicios.ine.es/wstempus/js/ES/VALORES_GRUPOSTABLA/50913/110924?det=1)
 

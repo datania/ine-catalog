@@ -1,4 +1,4 @@
-Published Time: Sun, 28 Sep 2025 06:15:26 GMT
+Published Time: Sun, 05 Oct 2025 08:41:18 GMT
 
 API JSON /Referencia de la API
 
@@ -66,7 +66,7 @@ Código identificativo de la tabla. Para obtener el código de una tabla acceder
 
         *   **nult**: devolver los n últimos datos o periodos.
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’), incluir metadatos (‘M’) o ambos (‘AM’)¨.
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿)¿.
         *   **tv**: parámetro para filtrar, utilizado con el formato _tv=id\_variable:id\_valor_. Más información en [Como filtrar datos de una tabla](https://www.ine.es/dyngs/DAB/index.htm?cid=1102).
         *   **date**:Obtener los datos entre dos fechas. El formato es date=aaaammdd:aaaammdd
 
@@ -123,7 +123,7 @@ Código identificativo de la serie. Para obtener el código de una serie acceder
 
         *   **nult**: devolver los n últimos datos o periodos.
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’), incluir metadatos (‘M’) o ambos (‘AM’)¨.
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿)¿.
         *   **date**: obtener los datos entre dos fechas. El formato es date=aaaammdd:aaaammdd.
 
     *   ### Salida
@@ -168,9 +168,9 @@ Código identificativo de la operación. Para consultar las operaciones disponib
         *   **p**: id de la periodicidad de las series. Periodicidades comunes: 1 (mensual), 3 (trimestral), 6 (semestral), 12 (anual). Para ver una lista de las periodicidades acceder a[PERIODICIDADES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1158).
         *   **nult**: devolver los n últimos datos o periodos.
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’), incluir metadatos (‘M’) o ambos (‘AM’).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿).
         *   **g1**: primer filtro de variables y valores. El formato es g1=id_variable_1:id_valor_1. Cuando no se especifica el id_valor_1 se devuelven todos los valores de id_variable_1 (g1=id_variable_1:). Para obtener las variables de una operación dada consultar[https://servicios.ine.es/wstempus/js/ES/VARIABLES_OPERACION/IPC](https://servicios.ine.es/wstempus/js/ES/VARIABLES_OPERACION/IPC). Para obtener los valores de una variable específica de una operación data consultar[https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLEOPERACION/762/IPC](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLEOPERACION/762/IPC).
-        *   **g2**: segundo filtro de variables y valores. El formato es g2=id_variable_2:id_valor_2. Cuando no se especifica el id_valor_2 se devuelven todos los valores de id_variable_2 (g2=id_variable_2:). Seguiríamos con g3, g4,… según el número de filtros que se utilicen sobre variables.
+        *   **g2**: segundo filtro de variables y valores. El formato es g2=id_variable_2:id_valor_2. Cuando no se especifica el id_valor_2 se devuelven todos los valores de id_variable_2 (g2=id_variable_2:). Seguiríamos con g3, g4,¿ según el número de filtros que se utilicen sobre variables.
 
     *   ### Ejemplos
 
@@ -392,7 +392,7 @@ Código identificativo de la operación. Para consultar las operaciones disponib
             *   geo=1: resultados por comunidades autónomas, provincias, municipios y otras desagregaciones.
             *   geo=0: Resultados nacionales.
 
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A’).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿).
 
     *   ### Salida
 
@@ -476,7 +476,7 @@ Código identificativo de la serie. Para obtener el código de una serie acceder
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos del parámetro: 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A´), incluir metadatos (`M´) o ambos (`AM´).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿).
 
     *   ### Salida
 
@@ -514,7 +514,7 @@ Código identificativo de la operación. Para consultar las operaciones disponib
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos del parámetro: 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A´), incluir metadatos (`M´) o ambos (`AM´).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿).
         *   **page**: la respuesta está paginada. Se ofrece un máximo de 500 elementos por página para no ralentizar la respuesta. Para consultar las páginas siguientes, se utiliza el parámetro page.
 
     *   ### Salida
@@ -578,7 +578,7 @@ Código identificativo de la tabla. Para obtener el código de una tabla acceder
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos del parámetro: 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A´), incluir metadatos (`M´) o ambos (`AM´).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿).
         *   **tv**: parámetro para filtrar, utilizado con el formato tv=id_variable:id_valor. Más información en [Como filtrar datos de una tabla](https://www.ine.es/dyngs/DAB/index.htm?cid=1102).
 
     *   ### Salida
@@ -614,9 +614,9 @@ Código identificativo de la operación. Para consultar las operaciones disponib
 
         *   **p**: id de la periodicidad de las series. Periodicidades comunes: 1 (mensual), 3 (trimestral), 6 (semestral), 12 (anual). Para ver una lista de las periodicidades acceder a[PERIODICIDADES](https://servicios.ine.es/wstempus/js/ES/).
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’), incluir metadatos (‘M’) o ambos (‘AM’).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿), incluir metadatos (`M¿) o ambos (`AM¿).
         *   **g1**: primer filtro de variables y valores. El formato es g1=id_variable_1:id_valor_1. Cuando no se especifica el id_valor_1 se devuelven todos los valores de id_variable_1 (g1=id_variable_1:). Para obtener las variables de una operación dada consultar[https://servicios.ine.es/wstempus/js/ES/VARIABLES_OPERACION/IPC](https://servicios.ine.es/wstempus/js/ES/VARIABLES_OPERACION/IPC). Para obtener los valores de una variable específica de una operación data consultar[https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLEOPERACION/762/IPC](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLEOPERACION/762/IPC).
-        *   **g2**: segundo filtro de variables y valores. El formato es g2=id_variable_2:id_valor_2. Cuando no se especifica el id_valor_2 se devuelven todos los valores de id_variable_2 (g2=id_variable_2:). Seguiríamos con g3, g4,… según el número de filtros que se utilicen sobre variables.
+        *   **g2**: segundo filtro de variables y valores. El formato es g2=id_variable_2:id_valor_2. Cuando no se especifica el id_valor_2 se devuelven todos los valores de id_variable_2 (g2=id_variable_2:). Seguiríamos con g3, g4,¿ según el número de filtros que se utilicen sobre variables.
 
     *   ### Salida
 
@@ -669,7 +669,7 @@ Ninguno.
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿).
 
     *   ### Salida
 
@@ -699,7 +699,7 @@ Código identificativo de la operación. Para consultar las operaciones disponib
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿).
 
     *   ### Salida
 
@@ -729,7 +729,7 @@ Código identificativo de la publicación. Para obtener una lista de las publica
     *   ### Parámetros
 
         *   **det**: ofrece mayor nivel de detalle de la información mostrada. Valores válidos son 0, 1 y 2.
-        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (‘A’).
+        *   **tip**: obtener la respuesta de las peticiones de modo más amigable (`A¿).
 
     *   ### Salida
 

@@ -1,4 +1,4 @@
-Published Time: Sun, 28 Sep 2025 06:15:26 GMT
+Published Time: Sun, 05 Oct 2025 07:21:48 GMT
 
 API JSON /Códigos identificadores de tablas y series
 
@@ -71,7 +71,7 @@ Sólo se dispone de identificadores de series para aquella información cuya fue
 El identificador de una serie de Tempus3 se obtiene a través de las tablas de INEbase:
 
 *   **Serie**: serie correspondiente a la variación anual del Índice de Precios de Consumo general.
-*   **Tabla**: Navegar a la tabla que contiene la serie en la que se tiene interés: ” Índices nacionales: general y de grupos ECOICOP”
+*   **Tabla**: Navegar a la tabla que contiene la serie en la que se tiene interés: ¿ Índices nacionales: general y de grupos ECOICOP¿
 *   **Enlace de la tabla**: [https://www.ine.es/jaxiT3/Datos.htm?t=50902](https://www.ine.es/jaxiT3/Datos.htm?t=50902)
 
 ![Image 6: tabla_indices](https://www.ine.es/GS_FILES/tabla_indices.png)
