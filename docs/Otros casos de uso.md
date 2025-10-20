@@ -1,4 +1,4 @@
-Published Time: Sun, 12 Oct 2025 10:29:39 GMT
+Published Time: Sun, 19 Oct 2025 12:55:49 GMT
 
 API JSON /Otros casos de uso
 
@@ -29,16 +29,13 @@ API JSON /Otros casos de uso
 *   [Otros casos de uso](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
 *   [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-*   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
 Otros casos de uso
 ==================
 
-Otros casos de uso
-
 Obtener datos de una serie
-------------------------------------------------
+--------------------------
 
 Para obtener los datos de una única serie es necesario conocer su código identificativo (acceder a [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)).
 

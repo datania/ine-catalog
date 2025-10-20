@@ -1,4 +1,4 @@
-Published Time: Sun, 12 Oct 2025 05:34:16 GMT
+Published Time: Sun, 19 Oct 2025 08:07:37 GMT
 
 API JSON /API JSON
 
@@ -29,14 +29,10 @@ API JSON /API JSON
 *   [Otros casos de uso](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
 *   [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-*   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
 API JSON
 ========
-
-API JSON
---------
 
 **Servicio web para la consulta de INEbase con salida en formato JSON**
 
@@ -46,8 +42,8 @@ La estructura de las peticiones a través de URL y la simplicidad del formato JS
 
 INEbase es el sistema que utiliza el INE para la publicación de la información estadística. La información que será accesible a través del servicio API JSON del INE proviene de tres fuentes distintas:
 
-*   Base de datos [Tempus3](https://www.ine.es/dyngs/INE/index.htm?cid=1105).
-*   Repositorio de archivos [PC-Axis](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1254735116596&p=1254735116596&pagename=ProductosYServicios%2FPYSLayout).
+*   Base de datos [Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105).
+*   Repositorio de archivos PC-Axis.
 *   Repositorio de archivos tpx.
 
 Para saber si una tabla estadística está almacenada en Tempus3, en el repositorio de archivos PC-Axis o en el repositorio de archivos tpx, consultar [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104).

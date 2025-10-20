@@ -1,4 +1,4 @@
-Published Time: Sun, 12 Oct 2025 08:01:43 GMT
+Published Time: Sun, 19 Oct 2025 07:57:16 GMT
 
 API JSON /Códigos identificadores de tablas y series
 
@@ -29,16 +29,13 @@ API JSON /Códigos identificadores de tablas y series
 *   [Otros casos de uso](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
 *   [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-*   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
 Códigos identificadores de tablas y series
 ==========================================
 
-Códigos identificadores de tablas y series
-
 Obtención del identificador de una tabla utilizando INEbase
----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------
 
 Navegando a través de INEbase, se acceden a las tablas estadísticas. Se distinguen los identificadores en base a la fuente de procedencia de las mismas.
 

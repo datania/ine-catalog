@@ -1,4 +1,4 @@
-Published Time: Sun, 12 Oct 2025 08:07:18 GMT
+Published Time: Sun, 19 Oct 2025 08:53:28 GMT
 
 API JSON /Obtener datos de una tabla
 
@@ -29,14 +29,10 @@ API JSON /Obtener datos de una tabla
 *   [Otros casos de uso](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
 *   [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-*   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
 Obtener datos de una tabla
 ==========================
-
-Obtener datos de una tabla
---------------------------
 
 Para obtener los datos de una tabla es necesario conocer su código identificativo (acceder a [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)).
 

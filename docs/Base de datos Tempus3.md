@@ -1,4 +1,4 @@
-Published Time: Sun, 12 Oct 2025 07:44:54 GMT
+Published Time: Sun, 19 Oct 2025 08:27:21 GMT
 
 API JSON /Base de datos Tempus3
 
@@ -29,14 +29,10 @@ API JSON /Base de datos Tempus3
 *   [Otros casos de uso](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
 *   [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-*   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
 Base de datos Tempus3
 =====================
-
-Base de datos Tempus3
----------------------
 
 Tempus3 contiene la información de todas las operaciones estadísticas coyunturales del INE, aquellas cuya periodicidad de difusión de resultados es inferior al año, además de algunas operaciones estadísticas estructurales.
 

@@ -1,4 +1,4 @@
-Published Time: Sun, 12 Oct 2025 06:00:40 GMT
+Published Time: Sun, 19 Oct 2025 07:39:29 GMT
 
 API JSON /Referencia de la API
 
@@ -29,14 +29,10 @@ API JSON /Referencia de la API
 *   [Otros casos de uso](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
 *   [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-*   [Generador de URLs](https://www.ine.es/dyngs/DAB/index.htm?cid=1347)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
 Referencia de la API
 ====================
-
-Referencia de la API
---------------------
 
 Se accede a la información disponible en INEbase mediante peticiones URL. Las peticiones URL tienen la siguiente estructura:
 
