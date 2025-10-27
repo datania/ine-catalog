@@ -1,37 +1,37 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.13"
-# dependencies = ["httpx"]
 # [tool.uv]
 # exclude-newer = "2025-03-13T00:00:00Z"
 # ///
 
 import json
 from pathlib import Path
-
-import httpx  # type: ignore
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
 INE_BASE_URL = "https://servicios.ine.es/wstempus/js/ES"
 
-client = httpx.Client(
-    base_url=INE_BASE_URL,
-    limits=httpx.Limits(max_keepalive_connections=16),
-    transport=httpx.HTTPTransport(retries=5),
-)
+
+def fetch_page(endpoint: str, page: int) -> list:
+    params = urlencode({"det": 10, "page": page})
+    url = f"{INE_BASE_URL}/{endpoint}?{params}"
+    request = Request(url, headers={"Accept": "application/json"})
+
+    with urlopen(request, timeout=120) as response:  # noqa: S310
+        if response.status != 200:
+            raise RuntimeError(f"INE API returned {response.status} for {endpoint}")
+
+        return json.loads(response.read().decode("utf-8"))
 
 
-def ine_request(client: httpx.Client, endpoint):
+def ine_request(endpoint: str) -> list:
     """Fetch data from INE API endpoint with automatic pagination."""
     page = 1
     data = []
 
     while True:
-        response = client.get(
-            f"/{endpoint}",
-            params={"det": 10, "page": page},
-            follow_redirects=True,
-            timeout=120,
-        ).json()
+        response = fetch_page(endpoint, page)
 
         if not response:
             break
@@ -57,21 +57,21 @@ data_dir.mkdir(exist_ok=True)
 
 # OPERACIONES_DISPONIBLES
 print("Fetching OPERACIONES_DISPONIBLES...")
-operations = ine_request(client, "OPERACIONES_DISPONIBLES")
+operations = ine_request("OPERACIONES_DISPONIBLES")
 save_jsonl(operations, data_dir / "operaciones.jsonl")
 print(f"\t✓ Found {len(operations)} operations")
 print(f"\t✓ Operations data saved to {data_dir}/operaciones.jsonl")
 
 # VARIABLES
 print("Fetching VARIABLES...")
-variables = ine_request(client, "VARIABLES")
+variables = ine_request("VARIABLES")
 save_jsonl(variables, data_dir / "variables.jsonl")
 print(f"\t✓ Found {len(variables)} variables")
 print(f"\t✓ Variables data saved to {data_dir}/variables.jsonl")
 
 # PUBLICACIONES
 print("Fetching PUBLICACIONES...")
-publications = ine_request(client, "PUBLICACIONES")
+publications = ine_request("PUBLICACIONES")
 save_jsonl(publications, data_dir / "publicaciones.jsonl")
 print(f"\t✓ Found {len(publications)} publications")
 print(f"\t✓ Publications data saved to {data_dir}/publicaciones.jsonl")
@@ -81,7 +81,7 @@ print("Fetching TABLAS_OPERACION...")
 tables = [
     table
     for operation in operations
-    for table in ine_request(client, f"TABLAS_OPERACION/{operation['Id']}")
+    for table in ine_request(f"TABLAS_OPERACION/{operation['Id']}")
 ]
 save_jsonl(tables, data_dir / "tablas.jsonl")
 print(f"\t✓ Found {len(tables)} tables")
