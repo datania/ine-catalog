@@ -62,11 +62,11 @@ ine_dir.mkdir(exist_ok=True, parents=True)
 async def fetch_table_metadata(client, table, semaphore, pbar):
     async with semaphore:
         url = f"https://servicios.ine.es/wstempus/jsCache/ES/SERIES_TABLA/{table['Id']}?det=1"
-        table_id = table['Id']
-        
+        table_id = table["Id"]
+
         # Log which table we're processing
         print(f"\n[Progress] Processing table {table_id} ({pbar.n + 1}/{len(tables)})")
-        
+
         try:
             # Request gzipped content with retries
             headers = {"Accept-Encoding": "gzip"}
