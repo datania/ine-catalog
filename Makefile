@@ -46,7 +46,7 @@ generate-readmes:
 
 .PHONY: upload
 upload:
-	HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload-large-folder --repo-type=dataset davidgasquez/ine ine
+	HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --repo-type=dataset davidgasquez/ine ine
 
 .PHONY: export
 export: export-base-api export-datasets export-metadata generate-readmes
