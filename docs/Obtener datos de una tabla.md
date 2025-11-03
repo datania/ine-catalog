@@ -1,4 +1,4 @@
-Published Time: Sun, 26 Oct 2025 06:55:52 GMT
+Published Time: Sun, 02 Nov 2025 10:29:18 GMT
 
 API JSON /Obtener datos de una tabla
 

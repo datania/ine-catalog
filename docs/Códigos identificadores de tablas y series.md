@@ -1,4 +1,4 @@
-Published Time: Sun, 26 Oct 2025 06:58:31 GMT
+Published Time: Sun, 02 Nov 2025 11:10:34 GMT
 
 API JSON /Códigos identificadores de tablas y series
 
