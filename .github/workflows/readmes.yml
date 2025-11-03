@@ -27,4 +27,4 @@ jobs:
 
       - name: Upload to Hugging Face
         run: |
-          HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset davidgasquez/ine ine
+          HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset davidgasquez/ine ine
