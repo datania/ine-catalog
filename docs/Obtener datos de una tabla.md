@@ -1,4 +1,4 @@
-Published Time: Sun, 23 Nov 2025 08:54:18 GMT
+Published Time: Sun, 30 Nov 2025 07:26:34 GMT
 
 API JSON /Obtener datos de una tabla
 
@@ -180,3 +180,5 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 Volver arriba
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1102)
+
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕

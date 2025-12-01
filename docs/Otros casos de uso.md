@@ -1,4 +1,4 @@
-Published Time: Sun, 23 Nov 2025 09:05:53 GMT
+Published Time: Sun, 30 Nov 2025 07:26:34 GMT
 
 API JSON /Otros casos de uso
 
@@ -218,3 +218,5 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 Volver arriba
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
+
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕

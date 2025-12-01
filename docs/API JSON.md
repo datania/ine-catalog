@@ -1,4 +1,4 @@
-Published Time: Sun, 23 Nov 2025 07:08:04 GMT
+Published Time: Sun, 30 Nov 2025 08:48:59 GMT
 
 API JSON /API JSON
 
@@ -101,3 +101,5 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 Volver arriba
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
+
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
