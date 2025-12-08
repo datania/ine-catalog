@@ -1,4 +1,4 @@
-Published Time: Sun, 30 Nov 2025 07:26:34 GMT
+Published Time: Sun, 07 Dec 2025 09:00:08 GMT
 
 API JSON /Obtener datos de una tabla
 
@@ -145,28 +145,23 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 *   [Prensa](https://www.ine.es/prensa/seccion_prensa.htm)
 *   [Clasificaciones y estándares](https://www.ine.es/dyngs/MYP/index.htm?cid=1)
 *   [Nuevos proyectos](https://www.ine.es/dyngs/MYP/index.htm?cid=10)
-*   [Ver +](https://www.ine.es/dyngs/MYP/index.htm?cid=23 "Métodos y proyectos / Documentos de Trabajo")
 
 *   [El INE](https://www.ine.es/dyngs/INE/index.htm?cid=498)
 *   [Transparencia](https://www.ine.es/dyngs/INE/index.htm?cid=401)
 *   [Organización Estadística en España](https://www.ine.es/dyngs/INE/index.htm?cid=581)
 *   [Calidad y Código de buenas prácticas](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259943453642&p=1259943453642&pagename=MetodologiaYEstandares%2FINELayout)
 *   [Sistema Estadístico Europeo](https://www.ine.es/dyngs/INE/index.htm?cid=542)
-*   [Ver +](https://www.ine.es/dyngs/INE/index.htm?cid=496 "El INE")
 
 *   [Formación y empleo](https://www.ine.es/dyngs/FYE/index.htm?cid=132)
 *   [Prácticas universitarias](https://www.ine.es/dyngs/FYE/index.htm?cid=133)
 *   [Becas](https://www.ine.es/dyngs/FYE/index.htm?cid=134)
 *   [Oposiciones](https://www.ine.es/dyngs/FYE/index.htm?cid=166)
 *   [Explica](https://www.ine.es/explica/explica.htm)
-*   [Ver +](https://www.ine.es/dyngs/FYE/index.htm?cid=132 "Formación y empleo")
 
-*   [IPC en un clic](https://www.ine.es/dyngs/IPC/index.htm?cid=1425)
-*   [Atención al público](https://www.ine.es/ss/Satellite?c=Page&cid=1254735550343&pagename=ProductosYServicios%2FPYSLayout&L=0)
-*   [Publicaciones](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1254735110606&p=1254735110606&pagename=ProductosYServicios%2FPYSLayout)
+*   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
 *   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
-*   [Carta de servicios](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259945091334&p=1259945091334&pagename=ProductosYServicios%2FPYSLayout)
-*   [Ver +](https://www.ine.es/ss/Satellite?c=Page&cid=1254735550343&pagename=ProductosYServicios%2FPYSLayout&L=0 "Productos y Servicios")
+*   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
+*   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
 *   Síguenos
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
