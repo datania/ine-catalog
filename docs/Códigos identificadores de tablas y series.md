@@ -1,4 +1,4 @@
-Published Time: Sun, 07 Dec 2025 07:53:08 GMT
+Published Time: Sun, 14 Dec 2025 06:16:06 GMT
 
 API JSON /Códigos identificadores de tablas y series
 
@@ -109,6 +109,6 @@ El identificador de una serie de Tempus3 se obtiene a través de las tablas de I
 
 Volver arriba
 
-[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
-
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
+
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
