@@ -1,7 +1,6 @@
-Published Time: Sun, 14 Dec 2025 06:16:16 GMT
+Published Time: Sun, 21 Dec 2025 06:53:52 GMT
 
 API JSON /Referencia de la API
-
 ===============
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
@@ -847,6 +846,8 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 © 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
+
+Cerrar Cerrar
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
 

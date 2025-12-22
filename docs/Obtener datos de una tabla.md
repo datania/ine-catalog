@@ -1,7 +1,6 @@
-Published Time: Sun, 14 Dec 2025 06:16:06 GMT
+Published Time: Sun, 21 Dec 2025 06:28:45 GMT
 
 API JSON /Obtener datos de una tabla
-
 ===============
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
@@ -173,6 +172,8 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 © 2025 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
+
+Cerrar Cerrar
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1102)
 
