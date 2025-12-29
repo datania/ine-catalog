@@ -1,4 +1,4 @@
-Published Time: Sun, 21 Dec 2025 08:37:37 GMT
+Published Time: Sun, 28 Dec 2025 07:39:15 GMT
 
 API JSON /Base de datos Tempus3
 ===============
@@ -135,6 +135,6 @@ Volver arriba
 
 Cerrar Cerrar
 
-Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-
 [Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
+
+Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
