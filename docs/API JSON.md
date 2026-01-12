@@ -1,4 +1,4 @@
-Published Time: Sun, 04 Jan 2026 07:32:03 GMT
+Published Time: Sun, 11 Jan 2026 06:57:21 GMT
 
 API JSON /API JSON
 ===============
@@ -93,8 +93,6 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 © 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
-
-Cerrar Cerrar
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
 

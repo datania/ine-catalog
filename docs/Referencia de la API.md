@@ -1,4 +1,4 @@
-Published Time: Sun, 04 Jan 2026 07:32:39 GMT
+Published Time: Sun, 11 Jan 2026 07:50:30 GMT
 
 API JSON /Referencia de la API
 ===============
@@ -847,8 +847,6 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 
 Volver arriba
 
-Cerrar Cerrar
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
-
-[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
