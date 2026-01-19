@@ -1,4 +1,4 @@
-Published Time: Sun, 11 Jan 2026 06:20:18 GMT
+Published Time: Sun, 18 Jan 2026 07:05:16 GMT
 
 API JSON /Obtener datos de una tabla
 ===============
@@ -167,7 +167,7 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
 *   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
-*   [Canal RSS](https://www.ine.es/dyngs/INE/es/index.htm?cid=1303 "Abre ventana nueva")
+*   [Canal RSS](https://www.ine.es/dyngs/AYU/es/index.htm?cid=1303 "Abre ventana nueva")
 
 © 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
