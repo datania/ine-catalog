@@ -3,7 +3,11 @@ name: Export INE READMEs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '0 4 * * 1'
+
+concurrency:
+  group: ine-catalog-${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   export-readmes:

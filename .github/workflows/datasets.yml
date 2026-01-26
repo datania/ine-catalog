@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 0 * * 1'
 
+concurrency:
+  group: ine-catalog-${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   export-datasets:
     runs-on: ubuntu-latest
@@ -14,12 +18,20 @@ jobs:
       matrix:
         split: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
         max_splits: [20]
+      max-parallel: 4
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
+
+      - name: Random start delay
+        shell: bash
+        run: |
+          delay=$((60 + RANDOM % 541))
+          echo "Sleeping for ${delay}s"
+          sleep "$delay"
 
       - name: Export INE Base API
         run: make export-base-api

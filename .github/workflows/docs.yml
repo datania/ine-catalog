@@ -3,7 +3,11 @@ name: Update API Documentation
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '0 6 * * 1'
+
+concurrency:
+  group: ine-catalog-${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   update-api-docs:
