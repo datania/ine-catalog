@@ -1,4 +1,4 @@
-Published Time: Sun, 18 Jan 2026 07:05:16 GMT
+Published Time: Sun, 25 Jan 2026 06:02:04 GMT
 
 API JSON /Base de datos Tempus3
 ===============
@@ -127,12 +127,12 @@ Con el identificador de la publicación se puede consultar la**fecha de publicac
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
 *   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
-*   [Canal RSS](https://www.ine.es/dyngs/AYU/es/index.htm?cid=1303 "Abre ventana nueva")
+*   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 
 © 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
 
-[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
-
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
+
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
