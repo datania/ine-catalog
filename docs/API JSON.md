@@ -1,4 +1,4 @@
-Published Time: Sun, 25 Jan 2026 06:01:12 GMT
+Published Time: Sun, 01 Feb 2026 06:12:05 GMT
 
 API JSON /API JSON
 ===============
@@ -94,6 +94,6 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 
 Volver arriba
 
-[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
-
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
+
+[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
