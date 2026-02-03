@@ -26,10 +26,10 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
-      - name: Random start delay
+      - name: Start delay
         shell: bash
         run: |
-          delay=$((RANDOM % 3601))
+          delay=1200
           echo "Sleeping for ${delay}s"
           sleep "$delay"
 

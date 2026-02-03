@@ -17,6 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Start delay
+        shell: bash
+        run: |
+          delay=0
+          echo "Sleeping for ${delay}s"
+          sleep "$delay"
+
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 

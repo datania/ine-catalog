@@ -1,6 +1,6 @@
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.13"
+# requires-python = ">=3.13,<3.14"
 # dependencies = ["duckdb", "tqdm"]
 # [tool.uv]
 # exclude-newer = "2025-03-13T00:00:00Z"
