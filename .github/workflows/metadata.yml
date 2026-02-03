@@ -44,4 +44,22 @@ jobs:
 
       - name: Upload to Hugging Face
         run: |
-          HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset davidgasquez/ine ine
+          attempts=5
+          delay=300
+          for attempt in $(seq 1 "$attempts")
+          do
+            echo "Upload attempt ${attempt}/${attempts}"
+            if HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset --num-workers 1 davidgasquez/ine ine
+            then
+              echo "Upload succeeded"
+              break
+            fi
+            if [ "$attempt" -lt "$attempts" ]
+            then
+              echo "Upload failed. Sleeping ${delay}s before retry."
+              sleep "$delay"
+            else
+              echo "Upload failed after ${attempts} attempts."
+              exit 1
+            fi
+          done
