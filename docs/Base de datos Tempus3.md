@@ -1,4 +1,4 @@
-Published Time: Mon, 02 Feb 2026 06:03:18 GMT
+Published Time: Mon, 09 Feb 2026 06:57:14 GMT
 
 API JSON /Base de datos Tempus3
 ===============
@@ -134,5 +134,3 @@ Con el identificador de la publicación se puede consultar la**fecha de publicac
 Volver arriba
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
-
-[Encuesta de satisfacción](https://www.ine.es/quiz/index.do?id=23 "Ir a la encuesta de satisfacción")✕
