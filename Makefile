@@ -3,6 +3,8 @@
 IMAGE_NAME := ine-data-exporter
 PORT := 8000
 
+HF_DATASET_REPO ?= datania/ine-catalog
+
 .PHONY: .uv
 .uv:
 	@uv -V || echo 'Please install uv: https://docs.astral.sh/uv/getting-started/installation/'
@@ -46,7 +48,7 @@ generate-readmes:
 
 .PHONY: upload
 upload:
-	HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --repo-type=dataset davidgasquez/ine ine
+	HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --repo-type=dataset $(HF_DATASET_REPO) ine
 
 .PHONY: export
 export: export-base-api export-datasets export-metadata generate-readmes
