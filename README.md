@@ -1,9 +1,9 @@
 # INE Data Exporter 📁
 
-Tools to export metadata and datasets from [Spain's National Institute of Statistics](https://www.ine.es) to [HuggingFace](https://huggingface.co/datasets/davidgasquez/ine).
+Tools to export metadata and datasets from [Spain's National Institute of Statistics](https://www.ine.es) to [HuggingFace](https://huggingface.co/datasets/datania/ine-catalog).
 
 > [!NOTE]  
-> Access all the latest datasets on [HuggingFace](https://huggingface.co/datasets/davidgasquez/ine)!
+> Access all the latest datasets on [HuggingFace](https://huggingface.co/datasets/datania/ine-catalog)!
 
 ## 🔍 Resources
 
