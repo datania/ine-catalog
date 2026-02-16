@@ -1,4 +1,4 @@
-Published Time: Mon, 09 Feb 2026 07:03:48 GMT
+Published Time: Mon, 16 Feb 2026 06:18:26 GMT
 
 API JSON /Referencia de la API
 ===============
@@ -7,7 +7,7 @@ API JSON /Referencia de la API
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1100 "English Page")
 
-[](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de Estadí­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de Estadí­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/)
@@ -843,4 +843,8 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 *   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 
-© 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
+© 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
+
+Volver arriba
+
+Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
