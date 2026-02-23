@@ -1,4 +1,4 @@
-Published Time: Mon, 16 Feb 2026 06:29:36 GMT
+Published Time: Mon, 23 Feb 2026 06:40:08 GMT
 
 API JSON /API JSON
 ===============
@@ -69,12 +69,12 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 *   [El INE](https://www.ine.es/dyngs/INE/index.htm?cid=498)
 *   [Transparencia](https://www.ine.es/dyngs/INE/index.htm?cid=401)
 *   [Organización Estadística en España](https://www.ine.es/dyngs/INE/index.htm?cid=581)
-*   [Calidad y Código de buenas prácticas](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259943453642&p=1259943453642&pagename=MetodologiaYEstandares%2FINELayout)
+*   [Calidad](https://www.ine.es/dyngs/MYP/es/index.htm?cid=35)
 *   [Sistema Estadístico Europeo](https://www.ine.es/dyngs/INE/index.htm?cid=542)
 
-*   [Formación y empleo](https://www.ine.es/dyngs/FYE/index.htm?cid=132)
-*   [Prácticas universitarias](https://www.ine.es/dyngs/FYE/index.htm?cid=133)
-*   [Becas](https://www.ine.es/dyngs/FYE/index.htm?cid=134)
+*   [Formación y empleo](https://www.ine.es/dyngs/FYE/index.htm?cid=1791)
+*   [Prácticas universitarias](https://www.ine.es/dyngs/FYE/es/index.htm?cid=1802)
+*   [Becas](https://www.ine.es/dyngs/FYE/es/index.htm?cid=1802)
 *   [Oposiciones](https://www.ine.es/dyngs/FYE/index.htm?cid=166)
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
