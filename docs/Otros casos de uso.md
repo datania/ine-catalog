@@ -1,6 +1,6 @@
-Published Time: Mon, 02 Mar 2026 06:57:23 GMT
+Published Time: Mon, 09 Mar 2026 07:01:12 GMT
 
-API JSON /Otros casos de uso
+Inicio / Datos abiertos / API JSON /Otros casos de uso
 ===============
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
@@ -19,6 +19,8 @@ API JSON /Otros casos de uso
     *   [Correo Electrónico](https://www.ine.es/dyngs/DAB/index.htm?cid=1103#shareMail "Abre ventana nueva")
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1103#shareClipboard "Abre ventana nueva")
 
+*   [Inicio](https://www.ine.es/ "Inicio")
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -204,8 +206,9 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://es.linkedin.com/company/ine-es "Abre ventana nueva")
+*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1103 "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
+*   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 
 © 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
