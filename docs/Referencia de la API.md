@@ -1,4 +1,4 @@
-Published Time: Mon, 09 Mar 2026 07:01:00 GMT
+Published Time: Mon, 16 Mar 2026 06:08:44 GMT
 
 Inicio / Datos abiertos / API JSON /Referencia de la API
 ===============
@@ -730,7 +730,7 @@ Código identificativo de la publicación. Para obtener una lista de las publica
 
     *   ### Salida
 
-Información de todas las publicaciones de una operación: identificador Tempus3 de la publicación, nombre, identificador Tempus3 de la periodicidad e identificador Tempus3 de la publicación fecha.
+Información de todas las fechas de publicación de una publicación: identificador Tempus3 de la publicación, nombre, identificador Tempus3 de la periodicidad e identificador Tempus3 de la publicación fecha.
 
     *   ### Ejemplos
 
