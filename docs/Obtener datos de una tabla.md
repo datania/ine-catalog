@@ -1,7 +1,6 @@
-Published Time: Mon, 16 Mar 2026 06:09:41 GMT
+Published Time: Mon, 23 Mar 2026 07:09:12 GMT
 
-Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
-===============
+# Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -20,7 +19,7 @@ Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1102#shareClipboard "Abre ventana nueva")
 
 *   [Inicio](https://www.ine.es/ "Inicio")
-*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1722 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -32,8 +31,7 @@ Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-Obtener datos de una tabla
-==========================
+# Obtener datos de una tabla
 
 Para obtener los datos de una tabla es necesario conocer su código identificativo (acceder a [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)).
 
@@ -51,8 +49,7 @@ Utilizamos el parámetro nult. Por ejemplo nult=5 para obtener los últimos 5 da
 
 [https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?nult=5](https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50902?nult=5)
 
-Como filtrar datos de una tabla
--------------------------------
+## Como filtrar datos de una tabla
 
 Cuando realizamos una petición de datos de una tabla existe la posibilidad de filtrar por variables y valores de interés utilizando el parámetro tv. Para ello vamos a distinguir los tres tipos posibles de fuentes de las tablas (tablas Tempus 3, tablas pc-axis y tablas tpx).
 
@@ -160,7 +157,7 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
-*   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
 *   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
 *   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
@@ -168,7 +165,7 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1102 "Abre ventana nueva")
+*   [LinkedIn](https://www.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 

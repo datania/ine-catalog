@@ -1,7 +1,6 @@
-Published Time: Mon, 16 Mar 2026 06:08:41 GMT
+Published Time: Mon, 23 Mar 2026 06:19:07 GMT
 
-Inicio / Datos abiertos / API JSON /API JSON
-===============
+# Inicio / Datos abiertos / API JSON /API JSON
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -20,7 +19,7 @@ Inicio / Datos abiertos / API JSON /API JSON
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1099#shareClipboard "Abre ventana nueva")
 
 *   [Inicio](https://www.ine.es/ "Inicio")
-*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1722 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -32,11 +31,9 @@ Inicio / Datos abiertos / API JSON /API JSON
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-API JSON
-========
+# API JSON
 
-Servicio web para la consulta de INEbase con salida en formato JSON
--------------------------------------------------------------------
+## Servicio web para la consulta de INEbase con salida en formato JSON
 
 El servicio API JSON INE (Java Script Object Notation) que se describe en esta sección permite acceder mediante peticiones URL a toda la información disponible en INEbase, sistema que utiliza el Instituto Nacional de Estadística (INE) para la publicación de la información estadística.
 
@@ -52,8 +49,13 @@ Para saber si una tabla estadística está almacenada en Tempus3, en el reposito
 
 Toda la información publicada por el INE, independientemente de la fuente, va a poder ser consultada a través de la API JSON.
 
-Paquete de R
-------------
+## OpenAPI
+
+La [documentación OpenAPI](https://www.ine.es/OpenAPI/index.html) (con Swagger UI) es la herramienta más intuitiva para el uso de la API JSON de INEbase. OpenAPI permite centralizar y estandarizar toda la especificación que define la API (endpoints, parámetros, formatos). Por su parte, Swagger UI transforma este documento en una interfaz de pruebas interactiva en el navegador, simplificando la consulta y validación de peticiones de datos.
+
+[](https://www.ine.es/OpenAPI/index.html)
+
+## Paquete de R
 
 Se dispone del [paquete INEapir](https://github.com/es-ine/ineapir) para interactuar con la API JSON.
 
@@ -82,7 +84,7 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
-*   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
 *   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
 *   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
@@ -90,7 +92,7 @@ Para facilitar el acceso a la información que la API JSON proporciona se ha des
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "Abre ventana nueva")
+*   [LinkedIn](https://www.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 

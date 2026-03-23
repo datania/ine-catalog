@@ -1,7 +1,6 @@
-Published Time: Mon, 16 Mar 2026 06:08:44 GMT
+Published Time: Mon, 23 Mar 2026 07:09:03 GMT
 
-Inicio / Datos abiertos / API JSON /Referencia de la API
-===============
+# Inicio / Datos abiertos / API JSON /Referencia de la API
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -20,7 +19,7 @@ Inicio / Datos abiertos / API JSON /Referencia de la API
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#shareClipboard "Abre ventana nueva")
 
 *   [Inicio](https://www.ine.es/ "Inicio")
-*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1722 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -32,8 +31,7 @@ Inicio / Datos abiertos / API JSON /Referencia de la API
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-Referencia de la API
-====================
+# Referencia de la API
 
 Se accede a la información disponible en INEbase mediante peticiones URL. Las peticiones URL tienen la siguiente estructura:
 
@@ -49,8 +47,7 @@ Los campos que aparecen entre llaves, { }, son obligatorios. Los campos que apar
 *   **{input}**. Identificadores de los elementos de entrada de las funciones. Estos inputs varían en base a la función utilizada.
 *   **[¿parámetros]**. Los parámetros en la URL se establecen a partir del símbolo ?. Cuando haya más de un parámetro, el símbolo & se utiliza como separador. No todas las funciones admiten todos los parámetros posibles.
 
-Lista de funciones
-------------------
+## Lista de funciones
 
 *   DATOS_TABLA
     *   Obtener datos para una tabla específica.
@@ -834,7 +831,7 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
-*   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
 *   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
 *   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
@@ -842,7 +839,7 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1100 "Abre ventana nueva")
+*   [LinkedIn](https://www.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 

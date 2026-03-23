@@ -1,7 +1,6 @@
-Published Time: Mon, 16 Mar 2026 07:15:08 GMT
+Published Time: Mon, 23 Mar 2026 06:48:34 GMT
 
-Inicio / Datos abiertos / API JSON /Otros casos de uso
-===============
+# Inicio / Datos abiertos / API JSON /Otros casos de uso
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -20,7 +19,7 @@ Inicio / Datos abiertos / API JSON /Otros casos de uso
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1103#shareClipboard "Abre ventana nueva")
 
 *   [Inicio](https://www.ine.es/ "Inicio")
-*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1722 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -32,11 +31,9 @@ Inicio / Datos abiertos / API JSON /Otros casos de uso
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-Otros casos de uso
-==================
+# Otros casos de uso
 
-Obtener datos de una serie
---------------------------
+## Obtener datos de una serie
 
 Para obtener los datos de una única serie es necesario conocer su código identificativo (acceder a [Códigos identificadores de tablas y series](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)).
 
@@ -62,8 +59,7 @@ Una vez se conoce el código de la serie de interés, se puede utilizar la funci
 
 [https://servicios.ine.es/wstempus/js/ES/DATOS_SERIE/IPC251856?date=20240101:&tip=A](https://servicios.ine.es/wstempus/js/ES/DATOS_SERIE/IPC251856?date=20240101:&tip=A)
 
-Consultar operaciones estadísticas
-----------------------------------
+## Consultar operaciones estadísticas
 
 La base de datos Tempus3 contiene la información de todas las operaciones estadísticas coyunturales del INE, aquellas cuya periodicidad de difusión de resultados es inferior al año, además de algunas operaciones estadísticas estructurales. La relación de operaciones en Tempus3 cambia a medida que se van integrando en la base de datos. Puede consultarse la lista de operaciones disponibles en cualquier momento con las funciones [OPERACIONES_DISPONIBLES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1143) y [OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1144).
 
@@ -75,8 +71,7 @@ La base de datos Tempus3 contiene la información de todas las operaciones estad
 
 [https://servicios.ine.es/wstempus/js/ES/OPERACION/IPC](https://servicios.ine.es/wstempus/js/ES/OPERACION/IPC)
 
-Consultar variables
--------------------
+## Consultar variables
 
 Se pueden obtener las variables del Sistema utilizando las funciones [VARIABLES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1145) y [VARIABLES_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1146).
 
@@ -92,8 +87,7 @@ Se pueden obtener las variables del Sistema utilizando las funciones [VARIABLES]
 
 [https://servicios.ine.es/wstempus/js/ES/VARIABLES_OPERACION/IPC](https://servicios.ine.es/wstempus/js/ES/VARIABLES_OPERACION/IPC)
 
-Consultar valores de variables
-------------------------------
+## Consultar valores de variables
 
 Se pueden obtener los valores de una variable utilizando las funciones [VALORES_VARIABLE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1147) y [VALORES_VARIABLEOPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1148).
 
@@ -107,8 +101,7 @@ Se pueden obtener los valores de una variable utilizando las funciones [VALORES_
 
 [https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLEOPERACION/762/25](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLEOPERACION/762/25)
 
-Obtener información de tablas
------------------------------
+## Obtener información de tablas
 
 En lo que se refiere a las tablas, se puede obtener un listado de las tablas de una operación con la función [TABLAS_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1149) y también las variables y valores que la definen con las funciones [GRUPOS_TABLA](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1150) y [VALORES_GRUPOSTABLA](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1151).
 
@@ -128,8 +121,7 @@ En lo que se refiere a las tablas, se puede obtener un listado de las tablas de 
 
 [https://servicios.ine.es/wstempus/js/ES/VALORES_GRUPOSTABLA/50913/110924?det=1](https://servicios.ine.es/wstempus/js/ES/VALORES_GRUPOSTABLA/50913/110924?det=1)
 
-Obtener información de series
------------------------------
+## Obtener información de series
 
 En lo que se refiere a las series, se puede obtener información de una serie con la función [SERIE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1152), así como de las variables y valores que la definen con la función [VALORES_SERIE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1155). Además, también se puede obtener un listado de las series de una tabla con la función [SERIES_TABLA](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1156) y un listado de las series de una operación [SERIES_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1154).
 
@@ -159,8 +151,7 @@ Consulta de las segundas 500 series pertenecientes a la operación IPC (IOE30138
 
 [https://servicios.ine.es/wstempus/js/ES/SERIES_OPERACION/IPC?page=2](https://servicios.ine.es/wstempus/js/ES/SERIES_OPERACION/IPC?page=2)
 
-Consultar publicaciones
------------------------
+## Consultar publicaciones
 
 Se puede obtener un listado de las todas las publicaciones del sistema con la función [PUBLICACIONES](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1159), así como el listado de las publicaciones de una operación con la función [PUBLICACIONES_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1160). Además, también se pueden consultar las fechas de publicación de una publicación en particular con la función [PUBLICACIONFECHA_PUBLICACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1161).
 
@@ -198,7 +189,7 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
-*   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
 *   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
 *   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
@@ -206,7 +197,7 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1103 "Abre ventana nueva")
+*   [LinkedIn](https://www.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 

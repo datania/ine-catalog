@@ -1,7 +1,6 @@
-Published Time: Mon, 16 Mar 2026 06:16:16 GMT
+Published Time: Mon, 23 Mar 2026 06:54:59 GMT
 
-Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y series
-===============
+# Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y series
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -20,7 +19,7 @@ Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y series
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1104#shareClipboard "Abre ventana nueva")
 
 *   [Inicio](https://www.ine.es/ "Inicio")
-*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1722 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -32,11 +31,9 @@ Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y series
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-Códigos identificadores de tablas y series
-==========================================
+# Códigos identificadores de tablas y series
 
-Obtención del identificador de una tabla utilizando INEbase
------------------------------------------------------------
+## Obtención del identificador de una tabla utilizando INEbase
 
 Navegando a través de INEbase, se acceden a las tablas estadísticas. Se distinguen los identificadores en base a la fuente de procedencia de las mismas.
 
@@ -61,8 +58,7 @@ Navegando a través de INEbase, se acceden a las tablas estadísticas. Se distin
 
 ![Image 5: extraccion_nacional](https://www.ine.es/GS_FILES/extraccion_nacional.png)
 
-Obtención del identificador de una serie utilizando INEbase (sólo Tempus3)
---------------------------------------------------------------------------
+## Obtención del identificador de una serie utilizando INEbase (sólo Tempus3)
 
 Sólo se dispone de identificadores de series para aquella información cuya fuente de datos es Tempus3. Por tanto, lo que a continuación se cuenta sólo es aplicable a las tablas de Tempus3.
 
@@ -95,7 +91,7 @@ El identificador de una serie de Tempus3 se obtiene a través de las tablas de I
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
-*   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
 *   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
 *   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
@@ -103,7 +99,7 @@ El identificador de una serie de Tempus3 se obtiene a través de las tablas de I
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1104 "Abre ventana nueva")
+*   [LinkedIn](https://www.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 

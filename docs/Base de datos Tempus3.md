@@ -1,7 +1,6 @@
-Published Time: Mon, 16 Mar 2026 07:15:08 GMT
+Published Time: Mon, 23 Mar 2026 06:18:16 GMT
 
-Inicio / Datos abiertos / API JSON /Base de datos Tempus3
-===============
+# Inicio / Datos abiertos / API JSON /Base de datos Tempus3
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -20,7 +19,7 @@ Inicio / Datos abiertos / API JSON /Base de datos Tempus3
     *   [Copiar al portapapeles](https://www.ine.es/dyngs/DAB/index.htm?cid=1105#shareClipboard "Abre ventana nueva")
 
 *   [Inicio](https://www.ine.es/ "Inicio")
-*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1097 "Datos abiertos")Botón para visualizar miga
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/index.htm?cid=1722 "Datos abiertos")Botón para visualizar miga
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099 "API JSON")
 
 *   [API JSON](https://www.ine.es/dyngs/DAB/index.htm?cid=1099)
@@ -32,8 +31,7 @@ Inicio / Datos abiertos / API JSON /Base de datos Tempus3
 *   [Base de datos Tempus3](https://www.ine.es/dyngs/DAB/index.htm?cid=1105)
 *   [Generador de gráficos](https://www.ine.es/dyngs/DAB/index.htm?cid=1348)
 
-Base de datos Tempus3
-=====================
+# Base de datos Tempus3
 
 Tempus3 contiene la información de todas las operaciones estadísticas coyunturales del INE, aquellas cuya periodicidad de difusión de resultados es inferior al año, además de algunas operaciones estadísticas estructurales.
 
@@ -41,13 +39,11 @@ La relación de operaciones en Tempus3 cambia a medida que éstas se van integra
 
 Tempus3 es una base de datos relacional que utiliza un conjunto de objetos organizados dentro de una jerarquía para almacenar y gestionar la información estadística. Su elemento principal es la serie temporal, único objeto con datos asociados, en torno a él surgen el resto de los elementos. Operaciones y tablas estadísticas serán objetos contenedores de series temporales.
 
-Conceptos fundamentales
------------------------
+## Conceptos fundamentales
 
 Para hacer un uso adecuado del servicio es necesario describir los siguientes conceptos, cuyos identificadores serán los inputs (valores de entrada) en la construcción de URLs.
 
-Variables
----------
+## Variables
 
 Una variable es una característica que puede fluctuar y cuya variación es susceptible de adoptar diferentes valores.
 
@@ -55,15 +51,13 @@ Las variables o listas de valores contenidas en Tempus3 y utilizadas en la difus
 
 Son ejemplos de variables las listas: Grupos COICOP, Sexo, CCAA, Provincias,...
 
-Valores
--------
+## Valores
 
 Los valores son los estados que puede presentar una variable determinada. Por ejemplo, la variable Provincias contiene los valores: Áraba/Álava, Albacete, Alicante/Alacant,...
 
 Los valores contenidos en Tempus3 y utilizados en la difusión, son comunes a todas las operaciones estadísticas, es decir, no están duplicadas en el sistema, su identificador en Tempus3 (Id) y sus descriptores son únicos. Se pueden consultar los valores con la función [VALORES_VARIABLE](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1147).
 
-Series
-------
+## Series
 
 **¿Qué son las series temporales?**
 
@@ -73,8 +67,7 @@ Como entidad principal de la base de datos Tempus3, la serie tiene unas propieda
 
 **Identificador único y características de la serie:**_id, nombre, periodicidad, escala, unidad, clasificación, decimales,..._
 
-Tablas
-------
+## Tablas
 
 Una de las ventajas de este Sistema es la facilidad que ofrece a la hora de gestionar las diferentes formas de presentación, que corresponden a las distintas formas en las que se pueden agrupar las series. Una de ellas es la agrupación en**tabla**(o cubo). Es la más utilizada por los usuarios, que acceden a las tablas estadísticas a través de INEbase.
 
@@ -86,8 +79,7 @@ Por ejemplo, se navega por[INEbase](https://www.ine.es/inebmenu/indice.htm)para 
 
 Como entidad, la tabla tiene unas características propias como nombre, los periodos que comprende y su un identificador, que es único. Puede obtener un listado de todas las tablas de una operación con la función [TABLAS_OPERACION](https://www.ine.es/dyngs/DAB/index.htm?cid=1100#is1149).
 
-Fecha de publicación
---------------------
+## Fecha de publicación
 
 Los datos en Tempus3 se publican a nivel de serie y están asociados a un instante de tiempo o**fecha de referenci**a**(periodo /año)**.
 
@@ -120,7 +112,7 @@ Con el identificador de la publicación se puede consultar la**fecha de publicac
 *   [Explica](https://www.ine.es/explica/explica.htm)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
-*   [Datos abiertos](https://www.ine.es/ss/Satellite?L=es_ES&c=Page&cid=1259942408928&p=1259942408928&pagename=ProductosYServicios%2FPYSLayout)
+*   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
 *   [Publicaciones](https://www.ine.es/dyngs/PUB/index.htm?cid=1440)
 *   [Carta de servicios](https://www.ine.es/dyngs/SER/index.htm?cid=1391)
 
@@ -128,7 +120,7 @@ Con el identificador de la publicación se puede consultar la**fecha de publicac
 *   [X](https://twitter.com/es_ine "Abre ventana nueva")
 *   [Youtube](https://www.youtube.com/INEDifusion "Abre ventana nueva")
 *   [Instagram](https://www.instagram.com/es_ine_/ "Abre ventana nueva")
-*   [LinkedIn](https://www.ine.es/dyngs/DAB/index.htm?cid=1105 "Abre ventana nueva")
+*   [LinkedIn](https://www.linkedin.com/company/ine-es "Abre ventana nueva")
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 
