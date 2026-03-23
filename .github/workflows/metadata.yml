@@ -1,5 +1,8 @@
 name: Export INE Metadata
 
+env:
+  HF_DATASET_REPO: datania/ine-catalog
+
 on:
   workflow_dispatch:
   schedule:
@@ -49,7 +52,7 @@ jobs:
           for attempt in $(seq 1 "$attempts")
           do
             echo "Upload attempt ${attempt}/${attempts}"
-            if HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset --num-workers 1 davidgasquez/ine ine
+            if HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset --num-workers 1 ${{ env.HF_DATASET_REPO }} ine
             then
               echo "Upload succeeded"
               break
