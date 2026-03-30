@@ -1,4 +1,4 @@
-Published Time: Mon, 23 Mar 2026 07:09:12 GMT
+Published Time: Mon, 30 Mar 2026 07:20:17 GMT
 
 # Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
