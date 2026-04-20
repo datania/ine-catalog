@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1102
 
-Published Time: Mon, 13 Apr 2026 07:39:12 GMT
+Published Time: Mon, 20 Apr 2026 08:05:58 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
