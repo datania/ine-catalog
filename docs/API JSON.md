@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /API JSON
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1099
 
-Published Time: Mon, 27 Apr 2026 08:23:28 GMT
+Published Time: Mon, 04 May 2026 07:41:44 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /API JSON
