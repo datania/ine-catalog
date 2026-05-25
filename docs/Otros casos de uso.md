@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Otros casos de uso
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1103
 
-Published Time: Mon, 18 May 2026 09:55:33 GMT
+Published Time: Mon, 25 May 2026 07:26:33 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Otros casos de uso
@@ -183,7 +183,7 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 
 *   [El INE](https://www.ine.es/dyngs/INE/index.htm?cid=498)
 *   [Transparencia](https://www.ine.es/dyngs/INE/index.htm?cid=401)
-*   [Organización Estadística en España](https://www.ine.es/dyngs/INE/index.htm?cid=581)
+*   [El Sistema Estadístico del Estado](https://www.ine.es/dyngs/INE/index.htm?cid=582)
 *   [Calidad](https://www.ine.es/dyngs/MYP/es/index.htm?cid=35)
 *   [Sistema Estadístico Europeo](https://www.ine.es/dyngs/INE/index.htm?cid=542)
 

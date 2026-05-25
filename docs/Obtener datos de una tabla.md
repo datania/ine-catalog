@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1102
 
-Published Time: Mon, 18 May 2026 09:24:01 GMT
+Published Time: Mon, 25 May 2026 09:58:27 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
@@ -151,7 +151,7 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 
 *   [El INE](https://www.ine.es/dyngs/INE/index.htm?cid=498)
 *   [Transparencia](https://www.ine.es/dyngs/INE/index.htm?cid=401)
-*   [Organización Estadística en España](https://www.ine.es/dyngs/INE/index.htm?cid=581)
+*   [El Sistema Estadístico del Estado](https://www.ine.es/dyngs/INE/index.htm?cid=582)
 *   [Calidad](https://www.ine.es/dyngs/MYP/es/index.htm?cid=35)
 *   [Sistema Estadístico Europeo](https://www.ine.es/dyngs/INE/index.htm?cid=542)
 

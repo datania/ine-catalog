@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y 
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1104
 
-Published Time: Mon, 18 May 2026 09:23:55 GMT
+Published Time: Mon, 25 May 2026 08:03:25 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y series
@@ -85,7 +85,7 @@ El identificador de una serie de Tempus3 se obtiene a través de las tablas de I
 
 *   [El INE](https://www.ine.es/dyngs/INE/index.htm?cid=498)
 *   [Transparencia](https://www.ine.es/dyngs/INE/index.htm?cid=401)
-*   [Organización Estadística en España](https://www.ine.es/dyngs/INE/index.htm?cid=581)
+*   [El Sistema Estadístico del Estado](https://www.ine.es/dyngs/INE/index.htm?cid=582)
 *   [Calidad](https://www.ine.es/dyngs/MYP/es/index.htm?cid=35)
 *   [Sistema Estadístico Europeo](https://www.ine.es/dyngs/INE/index.htm?cid=542)
 

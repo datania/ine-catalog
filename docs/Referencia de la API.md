@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Referencia de la API
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1100
 
-Published Time: Mon, 18 May 2026 09:17:24 GMT
+Published Time: Mon, 25 May 2026 07:26:05 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Referencia de la API
@@ -825,7 +825,7 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 
 *   [El INE](https://www.ine.es/dyngs/INE/index.htm?cid=498)
 *   [Transparencia](https://www.ine.es/dyngs/INE/index.htm?cid=401)
-*   [Organización Estadística en España](https://www.ine.es/dyngs/INE/index.htm?cid=581)
+*   [El Sistema Estadístico del Estado](https://www.ine.es/dyngs/INE/index.htm?cid=582)
 *   [Calidad](https://www.ine.es/dyngs/MYP/es/index.htm?cid=35)
 *   [Sistema Estadístico Europeo](https://www.ine.es/dyngs/INE/index.htm?cid=542)
 
