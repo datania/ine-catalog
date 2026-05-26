@@ -48,7 +48,7 @@ generate-readmes:
 
 .PHONY: upload
 upload:
-	HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --repo-type=dataset $(HF_DATASET_REPO) ine
+	HF_XET_HIGH_PERFORMANCE=1 hf upload-large-folder --repo-type=dataset $(HF_DATASET_REPO) ine
 
 .PHONY: export
 export: export-base-api export-datasets export-metadata generate-readmes

@@ -44,7 +44,7 @@ jobs:
         run: uv run scripts/02-export-datasets.py --split ${{ matrix.split }} --max-splits ${{ matrix.max_splits }}
 
       - name: Install Hugging Face CLI
-        run: uv tool install 'huggingface_hub[hf_transfer]'
+        run: uv tool install huggingface_hub
 
       - name: Upload delay (jitter)
         shell: bash
@@ -60,7 +60,7 @@ jobs:
           for attempt in $(seq 1 "$attempts")
           do
             echo "Upload attempt ${attempt}/${attempts}"
-            if HF_HUB_ENABLE_HF_TRANSFER=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset --num-workers 1 ${{ env.HF_DATASET_REPO }} ine
+            if HF_XET_HIGH_PERFORMANCE=1 hf upload-large-folder --token ${{ secrets.HF_TOKEN }} --repo-type=dataset --num-workers 1 ${{ env.HF_DATASET_REPO }} ine
             then
               echo "Upload succeeded"
               break
