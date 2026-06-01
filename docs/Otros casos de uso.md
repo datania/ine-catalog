@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Otros casos de uso
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1103
 
-Published Time: Mon, 25 May 2026 07:26:33 GMT
+Published Time: Mon, 01 Jun 2026 08:09:08 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Otros casos de uso

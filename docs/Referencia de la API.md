@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Referencia de la API
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1100
 
-Published Time: Mon, 25 May 2026 07:26:05 GMT
+Published Time: Mon, 01 Jun 2026 07:21:53 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Referencia de la API
@@ -348,9 +348,9 @@ Información de los valores que puede tomar la variable: identificador Tempus3 d
 
 [https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/115?det=2](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/115?det=2)
 
-        *   Consulta de municipios de 2019
+        *   Consulta de municipios de 2026
 
-[https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/19?&clasif=107](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/19?&clasif=107)
+[https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/19?&clasif=121&det=2](https://servicios.ine.es/wstempus/js/ES/VALORES_VARIABLE/19?&clasif=121&det=2)
 
 *   VALORES_VARIABLEOPERACION
     *   Obtener todos los valores para una variable específica de una operación dada.

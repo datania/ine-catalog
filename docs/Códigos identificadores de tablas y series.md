@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y 
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1104
 
-Published Time: Mon, 25 May 2026 08:03:25 GMT
+Published Time: Mon, 01 Jun 2026 07:36:03 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y series
