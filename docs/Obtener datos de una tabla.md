@@ -2,10 +2,12 @@ Title: Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1102
 
-Published Time: Mon, 08 Jun 2026 08:27:31 GMT
+Published Time: Mon, 15 Jun 2026 08:27:46 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
+
+ Aviso a los usuarios
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -179,3 +181,13 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 Volver arriba
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1102)
+
+![Image 3](https://www.ine.es/menus//_b/img/aviso.svg)
+
+## Aviso a los usuarios
+
+Por motivos de mantenimiento del sistema, el funcionamiento de este portal web puede verse afectado hoy, día 15 de Junio.
+
+Disculpe las molestias.
+
+- [x] No volver a mostrar

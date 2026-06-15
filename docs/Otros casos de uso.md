@@ -2,10 +2,12 @@ Title: Inicio / Datos abiertos / API JSON /Otros casos de uso
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1103
 
-Published Time: Mon, 08 Jun 2026 08:18:33 GMT
+Published Time: Mon, 15 Jun 2026 08:27:45 GMT
 
 Markdown Content:
 # Inicio / Datos abiertos / API JSON /Otros casos de uso
+
+ Aviso a los usuarios
 
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
@@ -211,3 +213,13 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 Volver arriba
 
 Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1103)
+
+![Image 3](https://www.ine.es/menus//_b/img/aviso.svg)
+
+## Aviso a los usuarios
+
+Por motivos de mantenimiento del sistema, el funcionamiento de este portal web puede verse afectado hoy, día 15 de Junio.
+
+Disculpe las molestias.
+
+- [x] No volver a mostrar
