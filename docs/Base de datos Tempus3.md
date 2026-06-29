@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Base de datos Tempus3
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1105
 
-Published Time: Mon, 22 Jun 2026 07:42:57 GMT
+Published Time: Mon, 29 Jun 2026 07:18:25 GMT
 
 Markdown Content:
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
