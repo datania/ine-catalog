@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1102
 
-Published Time: Mon, 28 Sep 2026 11:03:40 GMT
+Published Time: Mon, 05 Oct 2026 08:46:05 GMT
 
 Markdown Content:
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
@@ -172,7 +172,7 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 
-© 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0") Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
+© 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1) Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
 
 Volver arriba
 
