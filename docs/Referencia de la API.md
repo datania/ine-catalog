@@ -2,14 +2,14 @@ Title: Inicio / Datos abiertos / API JSON /Referencia de la API
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1100
 
-Published Time: Mon, 05 Oct 2026 08:42:35 GMT
+Published Time: Mon, 12 Oct 2026 05:19:13 GMT
 
 Markdown Content:
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
 
 *   [English](https://www.ine.es/dyngs/DAB/en/index.htm?cid=1100 "English Page")
 
-[Menú de navegación](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de Estadí­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
+[](https://www.ine.es/indiceweb.htm "Menú de navegación")![Image 2: Instituto Nacional de Estadí­stica](https://www.ine.es/menus/_b/img/LogoINESiglasMini.svg)
 
 *   [Censo Electoral](https://www.ine.es/dyngs/CEL/index.htm?cid=41)
 *   [Sede electrónica](https://sede.ine.gob.es/)
@@ -846,8 +846,4 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 *   [Canal RSS](https://www.ine.es/dyngs/AYU/index.htm?cid=1303 "Abre ventana nueva")
 *   [GitHub](https://github.com/es-ine "Abre ventana nueva")
 
-© 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[Este sitio web y su contenido están bajo licencia CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1) Avda. Manoteras, 52 - 28050 - Madrid - España Tlf: (+34) 91 583 91 00
-
-Volver arriba
-
-Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
+ © 2026 [INE. Instituto Nacional de Estadística](https://www.ine.es/)[](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1 "Este sitio web y su contenido están bajo licencia CC BY-SA 4.0")Avda. Manoteras, 52 - 28050 - Madrid - España[Tlf: (+34) 91 583 91 00](tel:+34915839100)
