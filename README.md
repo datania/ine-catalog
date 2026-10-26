@@ -15,6 +15,19 @@ Tools to export metadata and datasets from [Spain's National Institute of Statis
 
 You can explore the API documentation in Markdown in the [docs](docs) folder.
 
+
+## 🚀 Usage
+
+A single weekly GitHub Action ([`export.yml`](.github/workflows/export.yml)) runs `scripts/export.py` and uploads `ine/` with `hf upload`.
+
+```bash
+make export             # export everything into ./ine (uv run --locked scripts/export.py)
+uv run scripts/export.py --limit 50   # quick smoke test
+make upload             # needs HF_TOKEN
+```
+
+Every request is retried with backoff. Tables that INE refuses to serve are skipped (the previous version stays on Hugging Face) and listed in `ine/failures.json`.
+
 ## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

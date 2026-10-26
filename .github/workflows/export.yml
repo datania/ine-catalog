@@ -1,0 +1,51 @@
+name: Export INE Catalog
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Only export the first N tables (empty = all)
+        required: false
+  schedule:
+    - cron: '0 1 * * 1'
+
+concurrency:
+  group: ine-catalog-export
+  cancel-in-progress: false
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Export
+        run: uv run --locked scripts/export.py ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+
+      - name: Upload to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_XET_HIGH_PERFORMANCE: '1'
+        run: |
+          for attempt in 1 2 3; do
+            uv run --locked hf upload --repo-type dataset datania/ine-catalog ine . \
+              --commit-message "Update INE catalog (${GITHUB_RUN_ID})" && exit 0
+            echo "Upload attempt ${attempt} failed, retrying in 60s"; sleep 60
+          done
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo '### Export summary'
+            echo "- tables: $(wc -l < ine/tablas.jsonl 2>/dev/null || echo 0)"
+            echo "- datos.parquet: $(find ine/tablas -name datos.parquet 2>/dev/null | wc -l)"
+            echo "- metadatos_series.parquet: $(find ine/tablas -name metadatos_series.parquet 2>/dev/null | wc -l)"
+            echo "- failed tables: $(jq length ine/failures.json 2>/dev/null || echo '?')"
+          } >> "$GITHUB_STEP_SUMMARY"
