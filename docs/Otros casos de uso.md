@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Otros casos de uso
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1103
 
-Published Time: Mon, 19 Oct 2026 10:22:16 GMT
+Published Time: Mon, 26 Oct 2026 09:53:20 GMT
 
 Markdown Content:
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
@@ -189,7 +189,7 @@ Se puede obtener un listado de las todas las publicaciones del sistema con la fu
 *   [Prácticas universitarias](https://www.ine.es/dyngs/FYE/es/index.htm?cid=1802)
 *   [Becas](https://www.ine.es/dyngs/FYE/es/index.htm?cid=1802)
 *   [Oposiciones](https://www.ine.es/dyngs/FYE/index.htm?cid=166)
-*   [Explica](https://www.ine.es/explica/explica.htm)
+*   [Explica](https://www.ine.es/dyngs/explica/index.htm?cid=1693)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
 *   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)

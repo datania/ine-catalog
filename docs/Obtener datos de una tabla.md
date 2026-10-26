@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Obtener datos de una tabla
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1102
 
-Published Time: Mon, 19 Oct 2026 10:19:55 GMT
+Published Time: Mon, 26 Oct 2026 09:50:27 GMT
 
 Markdown Content:
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
@@ -157,7 +157,7 @@ Si queremos filtrar por varios valores de una misma variable, tenemos que inclui
 *   [Prácticas universitarias](https://www.ine.es/dyngs/FYE/es/index.htm?cid=1802)
 *   [Becas](https://www.ine.es/dyngs/FYE/es/index.htm?cid=1802)
 *   [Oposiciones](https://www.ine.es/dyngs/FYE/index.htm?cid=166)
-*   [Explica](https://www.ine.es/explica/explica.htm)
+*   [Explica](https://www.ine.es/dyngs/explica/index.htm?cid=1693)
 
 *   [Atención al público](https://www.ine.es/dyngs/SER/index.htm?cid=1550)
 *   [Datos abiertos](https://www.ine.es/dyngs/DAB/es/index.htm?cid=1722)
