@@ -25,7 +25,7 @@ jobs:
           enable-cache: true
 
       - name: Export
-        run: uv run --locked scripts/export.py ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+        run: uv run --locked scripts/export.py --max-minutes 270 ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
 
       - name: Upload to Hugging Face
         env:

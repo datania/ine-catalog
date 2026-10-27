@@ -15,7 +15,6 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
-from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -55,9 +54,8 @@ def retry(fn, what):
             return fn()
         except Exception as e:
             # 4xx (other than 429) won't get better by retrying
-            client_error = (
-                isinstance(e, HTTPError) and 400 <= e.code < 500 and e.code != 429
-            )
+            status = getattr(e, "code", None) or getattr(e, "status_code", None)
+            client_error = status is not None and 400 <= status < 500 and status != 429
             if isinstance(e, Unavailable) or client_error or attempt == ATTEMPTS:
                 raise
             wait = 3 * 2**attempt + random.random()
@@ -137,19 +135,27 @@ def readme(table):
 
 
 def export_data(table_id, directory):
-    csv = directory / "datos.csv"
-    csv.write_bytes(fetch(CSV_URL.format(id=table_id)))
+    # Stream the gzipped CSV to disk first (some are >2GB gzipped). Letting DuckDB read
+    # it over HTTP buffers the whole decompressed body in RAM (17GB for table 13884).
+    csv = directory / "datos.csv.gz"
+    req = Request(CSV_URL.format(id=table_id), headers={"Accept-Encoding": "gzip"})
     try:
+        with urlopen(req, timeout=300) as r, open(csv, "wb") as f:
+            shutil.copyfileobj(r, f, 1 << 20)
+            gzipped = r.headers.get("Content-Encoding") == "gzip"
         with duckdb.connect() as con:
-            con.sql("SET threads = 2")
+            con.sql("SET threads = 2; SET memory_limit = '1GB'")
+            con.sql(f"SET temp_directory = '{directory}/.tmp'")
             con.sql(f"""
                 COPY (FROM read_csv('{csv}', delim=';', ignore_errors=true,
-                    normalize_names=true, null_padding=true, strict_mode=false))
+                    normalize_names=true, null_padding=true, strict_mode=false,
+                    compression='{"gzip" if gzipped else "none"}'))
                 TO '{directory / "datos.parquet"}'
                 (FORMAT parquet, COMPRESSION zstd, PARQUET_VERSION v2, ROW_GROUP_SIZE 1048576)
             """)
     finally:
-        csv.unlink()
+        csv.unlink(missing_ok=True)
+        shutil.rmtree(directory / ".tmp", ignore_errors=True)
 
 
 def export_series(table_id, directory):
@@ -166,7 +172,12 @@ def export_series(table_id, directory):
     )
 
 
+DEADLINE = float("inf")
+
+
 def export_table(table):
+    if time.monotonic() > DEADLINE:
+        return table["Id"], {"skipped": "time budget exhausted"}
     directory = TABLES / str(table["Id"])
     directory.mkdir(parents=True, exist_ok=True)
     (directory / "README.md").write_text(readme(table), encoding="utf-8")
@@ -188,9 +199,17 @@ def main():
         "--limit", type=int, help="Only export the first N tables (testing)"
     )
     parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument(
+        "--max-minutes",
+        type=float,
+        default=270,
+        help="Stop starting new tables after this",
+    )
     args = parser.parse_args()
 
     started = time.monotonic()
+    global DEADLINE
+    DEADLINE = started + args.max_minutes * 60
     shutil.rmtree(TABLES, ignore_errors=True)
     tables = list({t["Id"]: t for t in export_base()}.values())[: args.limit]
 
