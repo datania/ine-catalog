@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Códigos identificadores de tablas y 
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1104
 
-Published Time: Mon, 02 Nov 2026 10:19:57 GMT
+Published Time: Fri, 06 Nov 2026 10:38:10 GMT
 
 Markdown Content:
 Aviso a los usuarios
@@ -112,7 +112,7 @@ El identificador de una serie de Tempus3 se obtiene a través de las tablas de I
 
 Volver arriba
 
-Cerrar
+Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
 
 ![Image 7](https://www.ine.es/menus//_b/img/aviso.svg)
 
@@ -122,6 +122,4 @@ Por motivos de mantenimiento del sistema, el funcionamiento de este portal web p
 
 Disculpe las molestias.
 
-- [x] No volver a mostrar 
-
-Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1104)
+- [x] No volver a mostrar

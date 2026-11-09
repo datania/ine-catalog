@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /Referencia de la API
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1100
 
-Published Time: Mon, 02 Nov 2026 08:09:10 GMT
+Published Time: Fri, 06 Nov 2026 09:44:18 GMT
 
 Markdown Content:
 Aviso a los usuarios
@@ -852,7 +852,7 @@ Información de los valores hijo de un valor dentro de una estructura jerárquic
 
 Volver arriba
 
-Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
+Cerrar
 
 ![Image 3](https://www.ine.es/menus//_b/img/aviso.svg)
 
@@ -862,4 +862,6 @@ Por motivos de mantenimiento del sistema, el funcionamiento de este portal web p
 
 Disculpe las molestias.
 
-- [x] No volver a mostrar
+- [x] No volver a mostrar 
+
+Este sitio utiliza cookies para ofrecerle una mejor experiencia de navegación. Obtenga más información sobre [cómo utilizamos las cookies.](https://www.ine.es/dyngs/AYU/index.htm?cid=302)[Aceptar](https://www.ine.es/dyngs/DAB/index.htm?cid=1100)
