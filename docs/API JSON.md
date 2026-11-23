@@ -2,7 +2,7 @@ Title: Inicio / Datos abiertos / API JSON /API JSON
 
 URL Source: https://www.ine.es/dyngs/DAB/index.htm?cid=1099
 
-Published Time: Wed, 11 Nov 2026 13:22:35 GMT
+Published Time: Wed, 18 Nov 2026 14:52:26 GMT
 
 Markdown Content:
 [![Image 1: SIGLAS Instituto Nacional de Estadística](https://www.ine.es/menus/_b/img/LogoINE.svg)](https://www.ine.es/)
