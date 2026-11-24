@@ -37,7 +37,8 @@ jobs:
           for attempt in 1 2 3; do
             uv run --locked hf upload --repo-type dataset datania/ine-catalog ine . \
               --commit-message "Update INE catalog (${GITHUB_RUN_ID})" && exit 0
-            echo "Upload attempt ${attempt} failed, retrying in 60s"; sleep 60
+            echo "Upload attempt ${attempt} failed"
+            [ "$attempt" -lt 3 ] && sleep 60
           done
           exit 1
 

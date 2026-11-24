@@ -21,16 +21,12 @@ jobs:
       - name: Run make docs
         run: make docs
 
-      - name: Check for changes
-        id: git-check
-        run: |
-          git diff --quiet || echo "changes=true" >> $GITHUB_OUTPUT
-
       - name: Commit changes
-        if: steps.git-check.outputs.changes == 'true'
         run: |
+          # Stage first so new (untracked) docs count as changes too.
+          git add docs/
+          git diff --cached --quiet && exit 0
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add docs/
           git commit -m "docs: update INE documentation [automated]"
           git push

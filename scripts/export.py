@@ -143,7 +143,7 @@ def parse_ine_date(value):
         return None
     if re.fullmatch(r"-?\d+(\.\d+)?", text):
         return datetime.fromtimestamp(float(text) / 1000, UTC)
-    parts = text.split(" ")
+    parts = text.split()
     if len(parts) != 6 or parts[4] not in TZ_OFFSETS:
         raise ValueError(f"unsupported INE date: {value!r}")
     tz = parts.pop(4)
@@ -155,7 +155,7 @@ def format_ine_date(value):
     """YYYY-MM-DD (UTC, as before the API change), 'Desconocido' if missing."""
     try:
         parsed = parse_ine_date(value)
-    except (ValueError, TypeError) as e:
+    except (ValueError, TypeError, OverflowError) as e:
         # Don't lose the table over a README field; show the raw value instead.
         print(f"  WARNING {e}", flush=True)
         return str(value)
@@ -275,8 +275,9 @@ def main():
     started = time.monotonic()
     global DEADLINE
     DEADLINE = started + args.max_minutes * 60
-    shutil.rmtree(TABLES, ignore_errors=True)
     tables = list({t["Id"]: t for t in export_base()}.values())[: args.limit]
+    # Only wipe the previous output once the base API has answered.
+    shutil.rmtree(TABLES, ignore_errors=True)
 
     failures, done = {}, 0
     with ThreadPoolExecutor(args.workers) as pool:
