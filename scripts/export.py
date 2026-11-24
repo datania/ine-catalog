@@ -1,14 +1,15 @@
 """Export the INE catalog (base API, table data, series metadata, READMEs) to ./ine.
 
-Every HTTP call is retried. A table that still fails is skipped (its previous
-version stays on Hugging Face) and listed in ine/failures.json.
+Every HTTP call is retried. A table step that still fails is listed in
+ine/failures.json, and tables not started within --max-minutes are skipped; in
+both cases the previous version stays on Hugging Face. The job only fails when
+too many tables fail, which means something is broken rather than INE being flaky.
 """
 
 import argparse
 import gzip
 import json
 import random
-import re
 import shutil
 import sys
 import time
@@ -30,11 +31,9 @@ CSV_URL = "https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/{id}.csv"
 OUT = Path("ine")
 TABLES = OUT / "tablas"
 ATTEMPTS = 5
-# Fail the job if more than this fraction of tables fail (some are permanently
-# unavailable upstream, so a few failures are expected).
+# A normal run has ~2.5% of tables failing upstream (mostly series metadata that
+# INE refuses to serve); more than this fraction means something is broken.
 MAX_FAILED_FRACTION = 0.1
-# Set by main(): tables not started by then are skipped.
-DEADLINE = float("inf")
 
 README = """# {name}
 
@@ -121,45 +120,31 @@ def export_base():
     return tables
 
 
-# INE dates come either as epoch milliseconds (old API) or as Java Date.toString()
-# strings such as "Fri Nov 13 09:00:00 CET 2026" (since Nov 2026).
-# Explicit offsets: strptime's %Z doesn't understand CET/CEST.
-TZ_OFFSETS = {"UTC": 0, "GMT": 0, "WET": 0, "WEST": 1, "CET": 1, "CEST": 2}
+# strptime's %Z doesn't understand CET/CEST
+TZ_OFFSETS = {"CET": 1, "CEST": 2}
 
 
-def parse_ine_date(value):
-    """Parse an INE date (epoch ms number/string or Java date string) to aware UTC.
+def last_modified(value):
+    """README date (YYYY-MM-DD, UTC) from Ultima_Modificacion.
 
-    Returns None for missing values; raises ValueError/TypeError for anything else.
+    INE sent epoch milliseconds until Nov 2026 and now sends Java date strings
+    like "Fri Nov 13 09:00:00 CET 2026". Anything else is shown as-is.
     """
-    if value is None:
-        return None
-    if isinstance(value, bool) or not isinstance(value, int | float | str):
-        raise TypeError(f"unsupported INE date type: {value!r}")
-    if not isinstance(value, str):
-        return datetime.fromtimestamp(value / 1000, UTC)
-    text = value.strip()
-    if text in ("", "null"):
-        return None
-    if re.fullmatch(r"-?\d+(\.\d+)?", text):
-        return datetime.fromtimestamp(float(text) / 1000, UTC)
-    parts = text.split()
-    if len(parts) != 6 or parts[4] not in TZ_OFFSETS:
-        raise ValueError(f"unsupported INE date: {value!r}")
-    tz = parts.pop(4)
-    local = datetime.strptime(" ".join(parts), "%a %b %d %H:%M:%S %Y")
-    return (local - timedelta(hours=TZ_OFFSETS[tz])).replace(tzinfo=UTC)
-
-
-def format_ine_date(value):
-    """YYYY-MM-DD (UTC, as before the API change), 'Desconocido' if missing."""
+    if value in (None, "", "null"):
+        return "Desconocido"
     try:
-        parsed = parse_ine_date(value)
-    except (ValueError, TypeError, OverflowError) as e:
-        # Don't lose the table over a README field; show the raw value instead.
-        print(f"  WARNING {e}", flush=True)
+        if isinstance(value, str):
+            _, month, day, hms, tz, year = value.split()
+            local = datetime.strptime(
+                f"{year} {month} {day} {hms}", "%Y %b %d %H:%M:%S"
+            )
+            utc = local - timedelta(hours=TZ_OFFSETS[tz])
+        else:
+            utc = datetime.fromtimestamp(value / 1000, UTC)
+        return utc.strftime("%Y-%m-%d")
+    except (ValueError, KeyError, TypeError, OverflowError):
+        print(f"  WARNING unexpected Ultima_Modificacion: {value!r}", flush=True)
         return str(value)
-    return parsed.strftime("%Y-%m-%d") if parsed else "Desconocido"
 
 
 def readme(table):
@@ -177,7 +162,7 @@ def readme(table):
         operation_code=op.get("Codigo", ""),
         period_ini_name=(table.get("Periodo_ini") or {}).get("Nombre", "Desconocido"),
         period_ini_year=table.get("Anyo_Periodo_ini", "Desconocido"),
-        last_modified=format_ine_date(table.get("Ultima_Modificacion")),
+        last_modified=last_modified(table.get("Ultima_Modificacion")),
     )
 
 
@@ -204,8 +189,7 @@ def export_data(table_id, directory):
                 (FORMAT parquet, COMPRESSION zstd, PARQUET_VERSION v2, ROW_GROUP_SIZE 1048576)
             """)
     except BaseException:
-        # Don't count (or upload over the good one) a half-written parquet. DuckDB 2
-        # already removes it when COPY fails; this also covers other failure modes.
+        # Never upload a half-written parquet over the previous good one.
         (directory / "datos.parquet").unlink(missing_ok=True)
         raise
     finally:
@@ -214,7 +198,7 @@ def export_data(table_id, directory):
 
 
 def export_series(table_id, directory):
-    # No get_json: the caller already retries this whole step.
+    # fetch, not get_json: export_table already retries this whole step
     data = json.loads(fetch(SERIES_URL.format(id=table_id)))
     if isinstance(data, dict):
         # "Petición en proceso..." is transient; "restricciones de volumen" is permanent
@@ -228,23 +212,12 @@ def export_series(table_id, directory):
     )
 
 
-def error_text(e):
-    return f"{type(e).__name__}: {e}"[:300]
-
-
-def export_table(table):
-    """Export one table. Never raises: problems are returned as {step: error}."""
-    table_id = table.get("Id")
-    try:
-        return table_id, _export_table(table)
-    except Exception as e:  # noqa: BLE001 - one bad table must not kill the job
-        return table_id, {"table": error_text(e)}
-
-
-def _export_table(table):
-    if time.monotonic() > DEADLINE:
-        return {"skipped": "time budget exhausted"}
-    directory = TABLES / str(table["Id"])
+def export_table(table, deadline):
+    """Export one table. Returns {step: error} ({} if all ok), or None if skipped."""
+    if time.monotonic() > deadline:
+        return None
+    table_id = table["Id"]
+    directory = TABLES / str(table_id)
     directory.mkdir(parents=True, exist_ok=True)
     errors = {}
     try:
@@ -252,13 +225,13 @@ def _export_table(table):
             json.dumps(table, indent=4), encoding="utf-8"
         )
         (directory / "README.md").write_text(readme(table), encoding="utf-8")
-    except Exception as e:  # noqa: BLE001 - still try to export the data
-        errors["readme"] = error_text(e)
-    for name, fn in (("datos", export_data), ("metadatos_series", export_series)):
+    except Exception as e:  # noqa: BLE001 - still export the data
+        errors["readme"] = f"{type(e).__name__}: {e}"[:300]
+    for step, fn in (("datos", export_data), ("metadatos_series", export_series)):
         try:
-            retry(partial(fn, table["Id"], directory), f"{name} {table['Id']}")
+            retry(partial(fn, table_id, directory), f"{step} {table_id}")
         except Exception as e:  # noqa: BLE001 - record and move on
-            errors[name] = error_text(e)
+            errors[step] = f"{type(e).__name__}: {e}"[:300]
     return errors
 
 
@@ -277,19 +250,19 @@ def main():
     args = parser.parse_args()
 
     started = time.monotonic()
-    global DEADLINE
-    DEADLINE = started + args.max_minutes * 60
+    deadline = started + args.max_minutes * 60
     tables = list({t["Id"]: t for t in export_base()}.values())[: args.limit]
-    # Only wipe the previous output once the base API has answered.
-    shutil.rmtree(TABLES, ignore_errors=True)
+    shutil.rmtree(TABLES, ignore_errors=True)  # only once the base API answered
 
-    failures, done = {}, 0
+    failures, skipped = {}, 0
     with ThreadPoolExecutor(args.workers) as pool:
-        for table_id, errors in pool.map(export_table, tables):
-            done += 1
-            if errors:
-                failures[table_id] = errors
-                print(f"FAILED {table_id}: {errors}", flush=True)
+        results = pool.map(partial(export_table, deadline=deadline), tables)
+        for done, (table, errors) in enumerate(zip(tables, results), 1):
+            if errors is None:
+                skipped += 1
+            elif errors:
+                failures[table["Id"]] = errors
+                print(f"FAILED {table['Id']}: {errors}", flush=True)
             if done % 250 == 0 or done == len(tables):
                 print(
                     f"[{done}/{len(tables)}] {time.monotonic() - started:.0f}s",
@@ -299,28 +272,16 @@ def main():
     (OUT / "failures.json").write_text(
         json.dumps(failures, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-
-    def exported(name):
-        return sum((TABLES / str(t["Id"]) / name).exists() for t in tables)
-
-    data_ok = exported("datos.parquet")
-    series_ok = exported("metadatos_series.parquet")
+    attempted = len(tables) - skipped
     by_step = dict(Counter(step for errors in failures.values() for step in errors))
     print(
-        f"Done in {time.monotonic() - started:.0f}s: {len(tables)} tables, "
-        f"datos ok={data_ok}, metadatos_series ok={series_ok}, "
-        f"failed={len(failures)} {by_step}"
+        f"Done in {time.monotonic() - started:.0f}s: {attempted} tables exported, "
+        f"{len(failures)} with errors {by_step}, {skipped} skipped (time budget)"
     )
-    # Some tables are permanently unavailable upstream; only fail on widespread
-    # breakage. README/whole-table errors are our bugs, so they count separately:
-    # the data could all be fine while every README is missing.
-    limit = MAX_FAILED_FRACTION * len(tables)
-    broken = sum(1 for e in failures.values() if "readme" in e or "table" in e)
-    if len(tables) - data_ok > limit or broken > limit:
+    if len(failures) > MAX_FAILED_FRACTION * attempted:
         sys.exit(
-            f"Too many tables failed ({len(tables) - data_ok} without datos, "
-            f"{broken} with readme/table errors; see ine/failures.json), "
-            "something is broken"
+            f"{len(failures)} of {attempted} tables failed "
+            "(see ine/failures.json), something is broken"
         )
 
 
