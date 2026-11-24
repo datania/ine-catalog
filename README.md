@@ -27,7 +27,7 @@ make test               # unit tests
 make upload             # needs HF_TOKEN
 ```
 
-Every request is retried with backoff. Tables that INE refuses to serve are skipped (the previous version stays on Hugging Face) and listed in `ine/failures.json`.
+Every request is retried with backoff. Tables that still fail are listed in `ine/failures.json`, and tables not started within `--max-minutes` are skipped; either way their previous version stays on Hugging Face. The job only fails (and skips the upload) if more than 10% of the attempted tables fail.
 
 ## 📝 License
 
