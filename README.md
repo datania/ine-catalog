@@ -23,6 +23,7 @@ A single weekly GitHub Action ([`export.yml`](.github/workflows/export.yml)) run
 ```bash
 make export             # export everything into ./ine (uv run --locked scripts/export.py)
 uv run scripts/export.py --limit 50   # quick smoke test
+make test               # unit tests
 make upload             # needs HF_TOKEN
 ```
 

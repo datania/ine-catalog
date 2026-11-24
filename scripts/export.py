@@ -8,11 +8,12 @@ import argparse
 import gzip
 import json
 import random
+import re
 import shutil
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta, timezone
 from functools import partial
 from pathlib import Path
 from urllib.parse import urlencode
@@ -27,6 +28,9 @@ CSV_URL = "https://www.ine.es/jaxiT3/files/t/en/csv_bdsc/{id}.csv"
 OUT = Path("ine")
 TABLES = OUT / "tablas"
 ATTEMPTS = 5
+# Fail the job if more than this fraction of tables fail (some are permanently
+# unavailable upstream, so a few failures are expected).
+MAX_FAILED_FRACTION = 0.1
 
 README = """# {name}
 
@@ -112,11 +116,66 @@ def export_base():
     return tables
 
 
+# INE dates come either as epoch milliseconds (old API) or as Java Date.toString()
+# strings such as "Fri Nov 13 09:00:00 CET 2026" (since Nov 2026).
+INE_DATE = re.compile(
+    r"^\w{3} (?P<mon>\w{3}) (?P<day>\d{1,2}) (?P<h>\d{2}):(?P<m>\d{2}):(?P<s>\d{2})"
+    r" (?P<tz>[A-Z]{3,4}) (?P<year>\d{4})$"
+)
+MONTHS = {
+    "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
+    "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
+}  # fmt: skip
+# Explicit offsets: strptime's %Z doesn't understand CET/CEST.
+TZ_OFFSETS = {"UTC": 0, "GMT": 0, "WET": 0, "WEST": 1, "CET": 1, "CEST": 2}
+
+
+def parse_ine_date(value):
+    """Parse an INE date (epoch ms number/string or Java date string) to aware UTC.
+
+    Returns None for missing values; raises ValueError/TypeError for anything else.
+    """
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, int | float | str):
+        raise TypeError(f"unsupported INE date type: {value!r}")
+    if not isinstance(value, str):
+        return datetime.fromtimestamp(value / 1000, UTC)
+    text = value.strip()
+    if text in ("", "null"):
+        return None
+    if re.fullmatch(r"-?\d+(\.\d+)?", text):
+        return datetime.fromtimestamp(float(text) / 1000, UTC)
+    match = INE_DATE.match(text)
+    if not match or match["mon"] not in MONTHS or match["tz"] not in TZ_OFFSETS:
+        raise ValueError(f"unsupported INE date: {value!r}")
+    local = datetime(
+        int(match["year"]),
+        MONTHS[match["mon"]],
+        int(match["day"]),
+        int(match["h"]),
+        int(match["m"]),
+        int(match["s"]),
+        tzinfo=timezone(timedelta(hours=TZ_OFFSETS[match["tz"]])),
+    )
+    return local.astimezone(UTC)
+
+
+def format_ine_date(value):
+    """YYYY-MM-DD (UTC, as before the API change), 'Desconocido' if missing."""
+    try:
+        parsed = parse_ine_date(value)
+    except (ValueError, TypeError) as e:
+        # Don't lose the table over a README field; show the raw value instead.
+        print(f"  WARNING {e}", flush=True)
+        return str(value)
+    return parsed.strftime("%Y-%m-%d") if parsed else "Desconocido"
+
+
 def readme(table):
     pub = table.get("Publicacion") or {}
     op = (pub.get("Operacion") or [{}])[0]
     per = table.get("Periodicidad") or {}
-    modified = table.get("Ultima_Modificacion")
     return README.format(
         id=table["Id"],
         name=(table.get("Nombre") or "Desconocido").strip(),
@@ -128,9 +187,7 @@ def readme(table):
         operation_code=op.get("Codigo", ""),
         period_ini_name=(table.get("Periodo_ini") or {}).get("Nombre", "Desconocido"),
         period_ini_year=table.get("Anyo_Periodo_ini", "Desconocido"),
-        last_modified=datetime.fromtimestamp(modified / 1000, UTC).strftime("%Y-%m-%d")
-        if modified
-        else "Desconocido",
+        last_modified=format_ine_date(table.get("Ultima_Modificacion")),
     )
 
 
@@ -175,22 +232,38 @@ def export_series(table_id, directory):
 DEADLINE = float("inf")
 
 
+def error_text(e):
+    return f"{type(e).__name__}: {e}"[:300]
+
+
 def export_table(table):
+    """Export one table. Never raises: problems are returned as {step: error}."""
+    table_id = table.get("Id")
+    try:
+        return table_id, _export_table(table)
+    except Exception as e:  # noqa: BLE001 - one bad table must not kill the job
+        return table_id, {"table": error_text(e)}
+
+
+def _export_table(table):
     if time.monotonic() > DEADLINE:
-        return table["Id"], {"skipped": "time budget exhausted"}
+        return {"skipped": "time budget exhausted"}
     directory = TABLES / str(table["Id"])
     directory.mkdir(parents=True, exist_ok=True)
-    (directory / "README.md").write_text(readme(table), encoding="utf-8")
-    (directory / "metadata.json").write_text(
-        json.dumps(table, indent=4), encoding="utf-8"
-    )
     errors = {}
+    try:
+        (directory / "metadata.json").write_text(
+            json.dumps(table, indent=4), encoding="utf-8"
+        )
+        (directory / "README.md").write_text(readme(table), encoding="utf-8")
+    except Exception as e:  # noqa: BLE001 - still try to export the data
+        errors["readme"] = error_text(e)
     for name, fn in (("datos", export_data), ("metadatos_series", export_series)):
         try:
             retry(partial(fn, table["Id"], directory), f"{name} {table['Id']}")
         except Exception as e:  # noqa: BLE001 - record and move on
-            errors[name] = f"{type(e).__name__}: {e}"[:300]
-    return table["Id"], errors
+            errors[name] = error_text(e)
+    return errors
 
 
 def main():
@@ -237,13 +310,26 @@ def main():
         for t in tables
         if (TABLES / str(t["Id"]) / "metadatos_series.parquet").exists()
     )
+    by_step = {}
+    for errors in failures.values():
+        for step in errors:
+            by_step[step] = by_step.get(step, 0) + 1
     print(
         f"Done in {time.monotonic() - started:.0f}s: {len(tables)} tables, "
-        f"datos ok={data_ok}, metadatos_series ok={series_ok}, failed={len(failures)}"
+        f"datos ok={data_ok}, metadatos_series ok={series_ok}, "
+        f"failed={len(failures)} {by_step}"
     )
-    # Some tables are permanently unavailable upstream; only fail on widespread breakage.
-    if data_ok < 0.9 * len(tables):
-        sys.exit("Too many tables failed, something is broken")
+    # Some tables are permanently unavailable upstream; only fail on widespread
+    # breakage. README/whole-table errors are our bugs, so they count separately:
+    # the data could all be fine while every README is missing.
+    limit = MAX_FAILED_FRACTION * len(tables)
+    broken = sum(1 for e in failures.values() if "readme" in e or "table" in e)
+    if len(tables) - data_ok > limit or broken > limit:
+        sys.exit(
+            f"Too many tables failed ({len(tables) - data_ok} without datos, "
+            f"{broken} with readme/table errors; see ine/failures.json), "
+            "something is broken"
+        )
 
 
 if __name__ == "__main__":
