@@ -1,5 +1,6 @@
 """Unit tests for scripts/export.py. Run: uv run --locked python -m unittest discover -s tests -v"""
 
+import json
 import sys
 import tempfile
 import unittest
@@ -78,6 +79,11 @@ class ParseIneDate(unittest.TestCase):
     def test_format_falls_back_to_raw_value(self):
         with mock.patch("builtins.print"):
             self.assertEqual(export.format_ine_date("garbage"), "garbage")
+            self.assertEqual(
+                export.format_ine_date("Fri Feb 30 09:00:00 CET 2026"),
+                "Fri Feb 30 09:00:00 CET 2026",
+            )
+            self.assertEqual(export.format_ine_date(float("inf")), "inf")
             self.assertEqual(export.format_ine_date(True), "True")
 
 
@@ -184,6 +190,62 @@ class ExportTable(unittest.TestCase):
         table_id, errors = self.run_table({"Nombre": "x"})
         self.assertIsNone(table_id)
         self.assertIn("table", errors)
+
+
+class MainThresholds(unittest.TestCase):
+    """main() end to end with mocked network: thresholds and failures.json shape."""
+
+    def run_main(self, data, readme_fails=()):
+        tables = [{"Id": i} for i in range(1, 11)]
+
+        def fake_readme(table):
+            if table["Id"] in readme_fails:
+                raise ValueError("bad readme")
+            return "ok"
+
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            with (
+                mock.patch.object(export, "OUT", out),
+                mock.patch.object(export, "TABLES", out / "tablas"),
+                mock.patch.object(export, "export_base", return_value=tables),
+                mock.patch.object(export, "export_data", data),
+                mock.patch.object(export, "export_series", lambda *a: None),
+                mock.patch.object(export, "readme", fake_readme),
+                mock.patch.object(sys, "argv", ["export.py", "--workers", "1"]),
+                mock.patch("time.sleep"),
+                mock.patch("builtins.print"),
+            ):
+                try:
+                    export.main()
+                    code = None
+                except SystemExit as e:
+                    code = e.code
+            return code, json.loads((out / "failures.json").read_text("utf-8"))
+
+    @staticmethod
+    def data_failing_for(*ids):
+        def data(table_id, directory):
+            if table_id in ids:
+                raise export.Unavailable("no")
+            (directory / "datos.parquet").write_bytes(b"ok")
+
+        return data
+
+    def test_ten_percent_without_datos_is_ok(self):
+        code, failures = self.run_main(self.data_failing_for(1))
+        self.assertIsNone(code)
+        self.assertEqual(failures, {"1": {"datos": "Unavailable: no"}})
+
+    def test_over_ten_percent_without_datos_fails(self):
+        code, failures = self.run_main(self.data_failing_for(1, 2))
+        self.assertIn("Too many tables failed", code)
+        self.assertEqual(set(failures), {"1", "2"})
+
+    def test_over_ten_percent_readme_errors_fails(self):
+        code, failures = self.run_main(self.data_failing_for(), readme_fails=(1, 2))
+        self.assertIn("2 with readme/table errors", code)
+        self.assertEqual(failures["1"], {"readme": "ValueError: bad readme"})
 
 
 if __name__ == "__main__":
