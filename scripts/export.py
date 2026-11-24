@@ -190,10 +190,13 @@ def export_data(table_id, directory):
         with urlopen(req, timeout=300) as r, open(csv, "wb") as f:
             shutil.copyfileobj(r, f, 1 << 20)
             gzipped = r.headers.get("Content-Encoding") == "gzip"
-        with duckdb.connect() as con:
-            con.sql("SET threads = 2; SET memory_limit = '1GB'")
-            con.sql(f"SET temp_directory = '{directory}/.tmp'")
-            con.sql(f"""
+        config = {
+            "threads": 2,
+            "memory_limit": "1GB",
+            "temp_directory": str(directory / ".tmp"),
+        }
+        with duckdb.connect(config=config) as con:
+            con.execute(f"""
                 COPY (FROM read_csv('{csv}', delim=';', ignore_errors=true,
                     normalize_names=true, null_padding=true, strict_mode=false,
                     compression='{"gzip" if gzipped else "none"}'))
@@ -201,7 +204,8 @@ def export_data(table_id, directory):
                 (FORMAT parquet, COMPRESSION zstd, PARQUET_VERSION v2, ROW_GROUP_SIZE 1048576)
             """)
     except BaseException:
-        # Don't count (or upload over the good one) a half-written parquet.
+        # Don't count (or upload over the good one) a half-written parquet. DuckDB 2
+        # already removes it when COPY fails; this also covers other failure modes.
         (directory / "datos.parquet").unlink(missing_ok=True)
         raise
     finally:
