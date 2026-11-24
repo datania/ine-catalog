@@ -6,6 +6,7 @@ import unittest
 from datetime import UTC, datetime
 from pathlib import Path
 from unittest import mock
+from urllib.error import HTTPError
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import export
@@ -62,7 +63,12 @@ class ParseIneDate(unittest.TestCase):
         self.assertEqual(export.format_ine_date(0), "1970-01-01")
 
     def test_unknown_formats_raise(self):
-        for value in ("2026-11-13", "Fri Nov 13 09:00:00 PST 2026", "garbage"):
+        for value in (
+            "2026-11-13",
+            "Fri Nov 13 09:00:00 PST 2026",
+            "Fri Foo 13 09:00:00 CET 2026",
+            "garbage",
+        ):
             with self.assertRaises(ValueError):
                 export.parse_ine_date(value)
         for value in (True, [1], {"a": 1}):
@@ -73,6 +79,42 @@ class ParseIneDate(unittest.TestCase):
         with mock.patch("builtins.print"):
             self.assertEqual(export.format_ine_date("garbage"), "garbage")
             self.assertEqual(export.format_ine_date(True), "True")
+
+
+class Retry(unittest.TestCase):
+    def call(self, *errors):
+        """Run retry() over a fn raising `errors` in turn, then returning "ok"."""
+        errors = list(errors)
+        calls = []
+
+        def fn():
+            calls.append(1)
+            if errors:
+                raise errors.pop(0)
+            return "ok"
+
+        with mock.patch("time.sleep"), mock.patch("builtins.print"):
+            try:
+                return export.retry(fn, "x"), len(calls)
+            except Exception as e:  # noqa: BLE001
+                return e, len(calls)
+
+    def http(self, code):
+        return HTTPError("u", code, "msg", None, None)
+
+    def test_retries_transient_errors(self):
+        self.assertEqual(
+            self.call(OSError(), self.http(503), self.http(429)), ("ok", 4)
+        )
+
+    def test_gives_up_after_attempts(self):
+        result, calls = self.call(*[OSError()] * export.ATTEMPTS)
+        self.assertIsInstance(result, OSError)
+        self.assertEqual(calls, export.ATTEMPTS)
+
+    def test_no_retry_on_client_error_or_unavailable(self):
+        for error in (self.http(404), export.Unavailable()):
+            self.assertEqual(self.call(error), (error, 1))
 
 
 TABLE = {
@@ -126,6 +168,16 @@ class ExportTable(unittest.TestCase):
         self.assertEqual(errors, {"readme": "TypeError: boom"})
         self.assertEqual(calls, ["datos"])
         self.assertTrue((self.tables / "1" / "metadata.json").exists())
+
+    def test_step_errors_are_recorded(self):
+        def fail(table_id, directory):
+            raise export.Unavailable("nope")
+
+        _, errors = self.run_table(TABLE, data=fail, series=fail)
+        self.assertEqual(
+            errors,
+            {"datos": "Unavailable: nope", "metadatos_series": "Unavailable: nope"},
+        )
 
     def test_unexpected_error_does_not_raise(self):
         # No "Id" at all: export_table must still return instead of raising.

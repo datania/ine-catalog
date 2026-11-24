@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Create docs folder if it doesn't exist
 mkdir -p docs
@@ -10,14 +11,15 @@ download_doc() {
   local url="$1"
   local output_file="$2"
 
+  # --fail: on an HTTP error, abort instead of committing an error page
   curl "$url" \
-    --silent \
+    --fail --silent --show-error \
+    --output "$output_file" \
     -H "X-Base: final" \
     -H "X-Locale: es-ES" \
     -H "X-No-Cache: true" \
     -H "X-Return-Format: markdown" \
-    -H "X-Timeout: 120" \
-    > "$output_file"
+    -H "X-Timeout: 120"
 
   echo "Downloaded $output_file"
 }
