@@ -12,10 +12,12 @@ import re
 import shutil
 import sys
 import time
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
-from datetime import UTC, datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from functools import partial
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -31,6 +33,8 @@ ATTEMPTS = 5
 # Fail the job if more than this fraction of tables fail (some are permanently
 # unavailable upstream, so a few failures are expected).
 MAX_FAILED_FRACTION = 0.1
+# Set by main(): tables not started by then are skipped.
+DEADLINE = float("inf")
 
 README = """# {name}
 
@@ -58,8 +62,9 @@ def retry(fn, what):
             return fn()
         except Exception as e:
             # 4xx (other than 429) won't get better by retrying
-            status = getattr(e, "code", None) or getattr(e, "status_code", None)
-            client_error = status is not None and 400 <= status < 500 and status != 429
+            client_error = (
+                isinstance(e, HTTPError) and 400 <= e.code < 500 and e.code != 429
+            )
             if isinstance(e, Unavailable) or client_error or attempt == ATTEMPTS:
                 raise
             wait = 3 * 2**attempt + random.random()
@@ -118,14 +123,6 @@ def export_base():
 
 # INE dates come either as epoch milliseconds (old API) or as Java Date.toString()
 # strings such as "Fri Nov 13 09:00:00 CET 2026" (since Nov 2026).
-INE_DATE = re.compile(
-    r"^\w{3} (?P<mon>\w{3}) (?P<day>\d{1,2}) (?P<h>\d{2}):(?P<m>\d{2}):(?P<s>\d{2})"
-    r" (?P<tz>[A-Z]{3,4}) (?P<year>\d{4})$"
-)
-MONTHS = {
-    "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
-    "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
-}  # fmt: skip
 # Explicit offsets: strptime's %Z doesn't understand CET/CEST.
 TZ_OFFSETS = {"UTC": 0, "GMT": 0, "WET": 0, "WEST": 1, "CET": 1, "CEST": 2}
 
@@ -146,19 +143,12 @@ def parse_ine_date(value):
         return None
     if re.fullmatch(r"-?\d+(\.\d+)?", text):
         return datetime.fromtimestamp(float(text) / 1000, UTC)
-    match = INE_DATE.match(text)
-    if not match or match["mon"] not in MONTHS or match["tz"] not in TZ_OFFSETS:
+    parts = text.split(" ")
+    if len(parts) != 6 or parts[4] not in TZ_OFFSETS:
         raise ValueError(f"unsupported INE date: {value!r}")
-    local = datetime(
-        int(match["year"]),
-        MONTHS[match["mon"]],
-        int(match["day"]),
-        int(match["h"]),
-        int(match["m"]),
-        int(match["s"]),
-        tzinfo=timezone(timedelta(hours=TZ_OFFSETS[match["tz"]])),
-    )
-    return local.astimezone(UTC)
+    tz = parts.pop(4)
+    local = datetime.strptime(" ".join(parts), "%a %b %d %H:%M:%S %Y")
+    return (local - timedelta(hours=TZ_OFFSETS[tz])).replace(tzinfo=UTC)
 
 
 def format_ine_date(value):
@@ -210,13 +200,18 @@ def export_data(table_id, directory):
                 TO '{directory / "datos.parquet"}'
                 (FORMAT parquet, COMPRESSION zstd, PARQUET_VERSION v2, ROW_GROUP_SIZE 1048576)
             """)
+    except BaseException:
+        # Don't count (or upload over the good one) a half-written parquet.
+        (directory / "datos.parquet").unlink(missing_ok=True)
+        raise
     finally:
         csv.unlink(missing_ok=True)
         shutil.rmtree(directory / ".tmp", ignore_errors=True)
 
 
 def export_series(table_id, directory):
-    data = get_json(SERIES_URL.format(id=table_id))
+    # No get_json: the caller already retries this whole step.
+    data = json.loads(fetch(SERIES_URL.format(id=table_id)))
     if isinstance(data, dict):
         # "Petición en proceso..." is transient; "restricciones de volumen" is permanent
         if "proceso" in str(data.get("status", "")):
@@ -227,9 +222,6 @@ def export_series(table_id, directory):
         compression="zstd",
         row_group_size=1048576,
     )
-
-
-DEADLINE = float("inf")
 
 
 def error_text(e):
@@ -300,20 +292,15 @@ def main():
                 )
 
     (OUT / "failures.json").write_text(
-        json.dumps(failures, indent=2, ensure_ascii=False)
+        json.dumps(failures, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    data_ok = sum(
-        1 for t in tables if (TABLES / str(t["Id"]) / "datos.parquet").exists()
-    )
-    series_ok = sum(
-        1
-        for t in tables
-        if (TABLES / str(t["Id"]) / "metadatos_series.parquet").exists()
-    )
-    by_step = {}
-    for errors in failures.values():
-        for step in errors:
-            by_step[step] = by_step.get(step, 0) + 1
+
+    def exported(name):
+        return sum((TABLES / str(t["Id"]) / name).exists() for t in tables)
+
+    data_ok = exported("datos.parquet")
+    series_ok = exported("metadatos_series.parquet")
+    by_step = dict(Counter(step for errors in failures.values() for step in errors))
     print(
         f"Done in {time.monotonic() - started:.0f}s: {len(tables)} tables, "
         f"datos ok={data_ok}, metadatos_series ok={series_ok}, "
