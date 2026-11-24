@@ -17,3 +17,7 @@ upload:
 .PHONY: clean
 clean:
 	rm -rf ine/tablas ine/*.jsonl ine/failures.json
+
+.PHONY: test
+test:
+	uv run --locked python -m unittest discover -s tests -v
