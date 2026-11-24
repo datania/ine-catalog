@@ -1,9 +1,11 @@
 """Unit tests for scripts/export.py. Run: make test"""
 
+import io
 import json
 import sys
 import tempfile
 import unittest
+from email.message import Message
 from pathlib import Path
 from unittest import mock
 from urllib.error import HTTPError
@@ -140,6 +142,22 @@ class ExportTable(TempOutput):
         self.assertIsNone(self.run_table(deadline=0, data=data))
         data.assert_not_called()
         self.assertFalse((self.out / "tablas/1").exists())
+
+
+class ExportData(TempOutput):
+    def test_html_instead_of_csv_is_a_clear_error(self):
+        # INE answers 202 + its HTML home page while it prepares a CSV.
+        response = io.BytesIO(b"<!DOCTYPE html><html>INEbase</html>")
+        response.status, response.headers = 202, Message()
+        response.headers["Content-Type"] = "text/html;utf-8=;charset=UTF-8"
+        directory = self.out / "1"
+        directory.mkdir()
+        with (
+            mock.patch.object(export, "urlopen", return_value=response),
+            self.assertRaisesRegex(RuntimeError, "HTTP 202 HTML, not the CSV"),
+        ):
+            export.export_data(1, directory)
+        self.assertEqual(list(directory.iterdir()), [])
 
 
 class Main(TempOutput):

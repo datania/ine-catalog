@@ -173,6 +173,9 @@ def export_data(table_id, directory):
     req = Request(CSV_URL.format(id=table_id), headers={"Accept-Encoding": "gzip"})
     try:
         with urlopen(req, timeout=300) as r, open(csv, "wb") as f:
+            # While INE prepares a CSV it answers 202 with an HTML page; retry later.
+            if r.headers.get_content_type() == "text/html":
+                raise RuntimeError(f"INE returned HTTP {r.status} HTML, not the CSV")
             shutil.copyfileobj(r, f, 1 << 20)
             gzipped = r.headers.get("Content-Encoding") == "gzip"
         config = {
